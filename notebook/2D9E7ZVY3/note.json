@@ -1,0 +1,149 @@
+{
+  "paragraphs": [
+    {
+      "text": "val owl0223 \u003d sqlContext.read.format(\"com.databricks.spark.csv\").load(\"file:///root/twitch-bot/logs/log.2018-02-23*\").select( $\"_c0\".as(\"date\"),\n            $\"_c1\".as(\"hour\"),\n            $\"_c2\".as(\"min\"),\n            $\"_c3\".as(\"sec\"),\n            $\"_c4\".as(\"channel\"),\n            $\"_c5\".as(\"name\"),\n            $\"_c6\".as(\"msg\"))\nowl0223.createOrReplaceTempView(\"owl0223\")",
+      "user": "admin",
+      "dateUpdated": "Feb 27, 2018 1:55:21 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\nowl0223: org.apache.spark.sql.DataFrame \u003d [date: string, hour: string ... 5 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1519707285251_763639137",
+      "id": "20180227-135445_2028766881",
+      "dateCreated": "Feb 27, 2018 1:54:45 PM",
+      "dateStarted": "Feb 27, 2018 1:55:22 PM",
+      "dateFinished": "Feb 27, 2018 1:55:44 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect * from owl0223 limit 10",
+      "user": "admin",
+      "dateUpdated": "Feb 27, 2018 1:55:41 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "date\thour\tmin\tsec\tchannel\tname\tmsg\n2018-02-23\t00\t16\t00\t#overwatchleague\tusuii__ow\tLUL\n2018-02-23\t00\t16\t00\t#overwatchleague\tna_widowmaker\tPogChamp PogChamp PogChamp\n2018-02-23\t00\t16\t00\t#overwatchleague\ttemayte\t?????????\n2018-02-23\t00\t16\t00\t#overwatchleague\tdommafia\towlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1 owlnye1\n2018-02-23\t00\t16\t00\t#overwatchleague\thotoui\tఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞాఙ్ఞా\n2018-02-23\t00\t16\t00\t#overwatchleague_kr\txhfptmtm\t솜브라는 지금도 특정맵에서 포스 개쩌는데 버프되면 op급 안되겠냐\n2018-02-23\t00\t16\t00\t#overwatchleague\tdragrim\towlldn100\n2018-02-23\t00\t16\t01\t#overwatchleague\tjealousyow\tNOOOOOOO\n2018-02-23\t00\t16\t01\t#overwatchleague\talecn02\tH LUL USTON\n2018-02-23\t00\t16\t01\t#overwatchleague\tthebriano06\tPOGGERS\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1519707321999_1453355997",
+      "id": "20180227-135521_972414995",
+      "dateCreated": "Feb 27, 2018 1:55:21 PM",
+      "dateStarted": "Feb 27, 2018 1:55:41 PM",
+      "dateFinished": "Feb 27, 2018 1:55:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nshow tables",
+      "user": "admin",
+      "dateUpdated": "Feb 27, 2018 1:58:47 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "database\ttableName\tisTemporary\n\towl0223\ttrue\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1519707341762_-515373476",
+      "id": "20180227-135541_1845542997",
+      "dateCreated": "Feb 27, 2018 1:55:41 PM",
+      "dateStarted": "Feb 27, 2018 1:58:47 PM",
+      "dateFinished": "Feb 27, 2018 1:58:48 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "user": "admin",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1519707523972_1360124694",
+      "id": "20180227-135843_526443621",
+      "dateCreated": "Feb 27, 2018 1:58:43 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "owl0223",
+  "id": "2D9E7ZVY3",
+  "angularObjects": {
+    "2D82M616D:shared_process": [],
+    "2D74UREFQ:shared_process": [],
+    "2D62XYMMR:shared_process": [],
+    "2D6Z86WA3:shared_process": [],
+    "2D5BKH1HN:shared_process": [],
+    "2D6F7NX1N:shared_process": [],
+    "2D6E5TF2N:shared_process": [],
+    "2D6Z12VU5:shared_process": [],
+    "2D7BYG16U:shared_process": [],
+    "2D748E8ZD:shared_process": [],
+    "2D5Y7S8Q1:shared_process": [],
+    "2D8PGD5C9:shared_process": [],
+    "2D4YKPR6R:shared_process": [],
+    "2D7W7YNDX:shared_process": [],
+    "2D8C6UR7B:shared_process": [],
+    "2D5ST2F36:shared_process": [],
+    "2D78J6RDU:shared_process": [],
+    "2D7UKNFP3:shared_process": [],
+    "2D4V1TNVU:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}

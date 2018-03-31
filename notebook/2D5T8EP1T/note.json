@@ -1,0 +1,623 @@
+{
+  "paragraphs": [
+    {
+      "text": "%md\nnyxl vs london\nhouston vs boston\nflorida vs philli fusion",
+      "user": "admin",
+      "dateUpdated": "Feb 13, 2018 5:51:32 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "\u003cdiv class\u003d\"markdown-body\"\u003e\n\u003cp\u003enyxl vs london\u003cbr/\u003ehouston vs boston\u003cbr/\u003eflorida vs philli fusion\u003c/p\u003e\n\u003c/div\u003e"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518511861490_1413678104",
+      "id": "20180213-175101_1692125637",
+      "dateCreated": "Feb 13, 2018 5:51:01 PM",
+      "dateStarted": "Feb 13, 2018 5:51:32 PM",
+      "dateFinished": "Feb 13, 2018 5:51:32 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "val df3 \u003d sqlContext.read.format(\"com.databricks.spark.csv\").load(\"file:///root/twitch-bot/logs/log.2018-02-11*\").select( $\"_c0\".as(\"date\"),\n            $\"_c1\".as(\"hour\"),\n            $\"_c2\".as(\"min\"),\n            $\"_c3\".as(\"sec\"),\n            $\"_c4\".as(\"channel\"),\n            $\"_c5\".as(\"name\"),\n            $\"_c6\".as(\"msg\"))\ndf3.createOrReplaceTempView(\"one\")",
+      "user": "admin",
+      "dateUpdated": "Feb 27, 2018 2:17:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala"
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\ndf3: org.apache.spark.sql.DataFrame \u003d [date: string, hour: string ... 5 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518320202683_655811025",
+      "id": "20180211-123642_1372416832",
+      "dateCreated": "Feb 11, 2018 12:36:42 PM",
+      "dateStarted": "Feb 27, 2018 2:17:29 PM",
+      "dateFinished": "Feb 27, 2018 2:17:30 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect msg, count(msg) as ct from (\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one order by time)\nwhere lower(msg) like \u0027%j % k e%\u0027\ngroup by msg\norder by ct desc",
+      "user": "admin",
+      "dateUpdated": "Feb 11, 2018 5:39:15 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "msg\tct\nJ LUL K E\t3551\nJ PogChamp K E\t173\nJ LUL K E R A T\t162\nJ xqcO K E\t160\nJ LuL K E\t132\nJ LUL A K E\t115\nJ OMEGALUL K E\t26\nJ ResidentSleeper K E\t22\nJ BibleThump K E\t17\nJ PogChamp A K E\t16\nJ LUL K E J LUL K E\t16\nJ LUL k e\t11\nj LUL k e\t11\nJ LUL K E R LUL T\t11\nJ LUL K E.\t11\nJ LUL K E .\t10\nJ BlessRNG K E\t9\nJ TheIlluminati K E\t9\nJ FailFish K E\t8\nJ WutFace K E\t8\nJ forsenOMEGA K E\t8\nJ haHAA K E\t8\nJ LUL K E J LUL K E J LUL K E\t7\nJ LUL K E R T O W N\t7\nJ ZULUL K E\t7\nJ DansGame K E\t7\nJ LULLUL K E\t7\nJ LUL K E IS MAD\t6\nJ KappaPride K E\t6\nJ LUL K E \t6\nO U T J LUL K E D\t6\nJ A K E\t6\nJ xqcO A K E\t6\nJ (puke) K E\t6\nJ 😡 K E\t6\nJ D: K E\t5\nJ LUK K E\t5\nJ VoteYea K E\t5\nJ Wowee K E\t5\nJ LUL K E D\t5\nJ LUL K E!\t5\nOUT J LUL K E D\t5\nJ LUL K E RAT\t5\nJ 4Head K E\t5\nJ LUL O K E\t5\nJ LUL K E J LUL K E J LUL K E J LUL K E J LUL K E J LUL K E\t5\nJ A K E R A T\t5\nJ jakeowChamp K E\t5\nJ LUL K E is mad\t4\nJ O K E\t4\n\\J LUL K E\t4\nj lul k e\t4\nJ LUL K E ..\t4\nJ LUL K E IS MAD BECAUSE HE IS BAD\t4\nJ LUL K E TIME\t4\nJake가 왜 밈이되는거야? 그것의 재밌는 것을 생각할 때 정말 그렇게 생각하지 않고 어리석은가? 실제로 Jake가 게임의 최상위에 서있는 진지한 선수이기 때문에 존중을받을 자격이 있습니다. 이런 이유로 J LUL K E 스팸을 거부합니다!\t4\nJ ResidentSleeper A K E\t4\nJebaited J LUL K E OUTDATED Jebaited DREAMKAZPER OVERRATED Jebaited J PogChamp K E ACTIVATED Jebaited\t4\nI Don\u0027t get why everyone says J LUL K E can\u0027t aim... I mean he\u0027s in the overwatch league and his junkrat is amazing. The way Jake uses those double mines and traps is on a whole other level from every other DPS. So please don\u0027t say J LUL K E can\u0027t aim\t4\nJ LUL K E 1\t4\nJ moon2LUL K E\t3\nJ LUL K E U L T\t3\nJ BagOfMemes K E\t3\nJ KKona K E\t3\nJ LUL K E J LUL K E J LUL K E J LUL K E\t3\nJ LUL K E D O N\t3\nJ Kreygasm K E\t3\nJ OMEGALUL A K E\t3\nJ moon2GASM K E\t3\nJ GabeN K E\t3\nJ LUL A K E R A T\t3\nJ CoolStoryBob K E\t3\nJ LUL K E 2\t3\nJ TTours K E\t3\nJ LUL K e\t3\n: J LUL K E\t3\nJ Jebaited K E\t3\nJ Kappa K E\t3\nj LUL K E\t3\nJ Lul K E\t3\nJ LUL K E LUL\t3\nJ foxipoPeka K E\t3\nJ BlessRNG A K E\t3\nJ SwiftRage K E\t2\nNA J LUL K E\t2\nJ moon2CUTE K E\t2\nWhy is J LUL K E mad?\t2\nJ LUL K EJ LUL K EJ LUL K E\t2\nJ moon2P K E\t2\nJ FeelsBadMan K E\t2\nWHAT A J LUL K E\t2\nJ greekOMEGA K E\t2\nJ PogChamp K E !\t2\nJ LUL K E MAD\t2\nLUL J LUL K E\t2\nJ bbobLUL K E\t2\nJ TriHard K E\t2\nJ LUL3D K E\t2\nJ LUL K E/\t2\nJ LUL K E is a J O K E\t2\nJ HAhaa K E\t2\nJ (puke) K E .\t2\nJ VoteNay K E\t2\nLUL J LUL K E LUL\t2\nJ LUL K E BOT\t2\nJ O K E R A T\t2\nJ LuL A K E\t2\nJ LUL K E T I R E\t2\nJ LUL K E IS SO BAD\t2\nJ LUL K E \u003d T R LUL S H\t2\nO U T J LUL K E\t2\n@Jossuemx J LUL K E\t2\nJ LUL K E Clap\t2\n1-1 J LUL K E\t2\nJ fitzLUL K E\t2\nJ xqcLUL K E\t2\n@xqcow J LUL K E\t2\nJ LUL K E 7\t2\n@Temulence xxxGH xxxTY J LuL k E @Julekarem ....J LuL k E xxxFR xxxIE .\t2\nJ \u003c3 K E\t2\nJ LEL K E\t2\nJ LUL K E !\t2\nJ LUL K E J LUL K E J LUL K E J LUL K E J LUL K E\t2\nJ lul K E\t2\nJ LUL K E BM\t2\nJ monkaS K E\t2\nthe J LUL K E\t2\nJ HYPERLUL K E\t2\nJ moon2SPY K E\t2\nJ LUL K E not on J LUL K E R LUL T\t2\nJ LUL K E IS MAD CUZ HE IS BAD\t2\nJ LUL K E P LUL U L\t2\nJ LUL K E back to his only good hero LUL\t2\nJ LUL K EE\t2\nJ KAPOW K E\t2\nJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K E\t2\nJ NotLikeThis K E\t2\nJ PogChamp K EJ PogChamp K EJ PogChamp K E\t2\nJ LUL K E not on Junkrat LUL\t2\nJ PogChamp K E R A T\t2\nJJ LUL K E\t2\nJ LUL K E is mad because he is bad\t2\nJ xqcO K E .\t2\nJ LUL K E M KappaPride M A and L I PogChamp Z R\t2\n1-1 LUL J LUL K E\t2\nGJ J LUL K E\t1\nJ dafranKEK K E\t1\nJ LUL K E not on rat\t1\nJ xqcO K E CARRIED\t1\nJ LUL K E 76\t1\nLETS GO J LUL K E\t1\nWhadda J LUL K E\t1\nBlessRNG EVERY NIGHT I PRAY TO J LUL K E BlessRNG\t1\nJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K E\t1\nJ jimbenChamp K E\t1\nJ LUL K E C;ap\t1\nJ POGGERS K E\t1\nJ LUL K E J LUL K E J LUL K E J LUL K E J LUL K E J LUL K E J LUL K E J LUL K E J LUL K E J LUL K E\t1\nJ LUL K E IS MAD BECAUSE HE IS BAD LUL\t1\nJ xqc0 K E\t1\nJ A K E S U C K S\t1\nJ LUL K E is J LUL K E\t1\nJ LUL K E on Pharah\t1\nJ LUL K E \u003d Trash\t1\nJ LUL K E THROWING\t1\nJ LUL K E C E R\t1\njake is just j LUL k e\t1\nJ LUL K E pharah DansGame\t1\nRIP J LUL K E\t1\nJ LUL K E BOMB\t1\nJ LUL K E LOVES THIS MAP LUL\t1\nJ LUL K E is handsome\t1\nJ KAPPA K E\t1\nJ cmonBruh K E\t1\nJ LUL K E is M LUL D Because He\u0027s B LUL D\t1\nJ ResidentSleeper K E LUL\t1\nJ xcqO K E\t1\nJ moon2M K E\t1\nJ LUL K E THROW\t1\nJ A K E is mad\t1\nJ LUL K E 9\t1\nJ LUL K E crouch spam visor J LUL K E\t1\nout J LUL K E\t1\nJ LUL K E REKT!\t1\n@xqcow J LUL K E 7 6\t1\nC9 LUL J LUL K E\t1\njake is a J kephriiHS K E\t1\nJ LUL K E doing nothing\t1\nHow many kills did J LUL K E get\t1\nJ LUL K E Your trash LUL\t1\n@pvptwitch HeyGuys a better junk than J LUL K E\t1\nJ LUL K E ON RAT LUL\t1\nJake is a j LUL k e\t1\nJ LUL K E BEST CHOICE\t1\nJ LUL K E+\t1\nJ LUL K E not playing J LUL K E R A T LUL LUL LUL LUL\t1\nJ LUL K E ;\t1\nJ lacXD K E\t1\nJ LUL K E Rat\t1\nJ LUL K E Throwing\t1\nMendo still on bench J LUL K E\t1\nJ LUL K E R LUL T CARRY\t1\n@xQcOW J LUL K E is mad because HE IS BAD\t1\nNO J LUL K E R A T \u003d GG\t1\nàJ LUL K E\t1\nJ lul K E R A T\t1\nLet’s get the “J LUL K E” going\t1\nJ LUL K E IS B LUL D B E C LUL U S E HE IS B LUL D\t1\nJ TehePelo K E\t1\nJ LUL K E is mad bcz he is bad\t1\nA I R J LUL K E\t1\n2+ 152 - 109 * 6678261 + 5/6 + 20000+/- 3000 * 100009238 + 700 - (Haribo+Jogi) + 70000000001 + (Jeff+Overwatch) \u003d J A K E LUL\t1\nJ O K E R A T LUL\t1\nI Don\u0027t get why everyone says J LUL K E can\u0027t aim... I mean he\u0027s in the overwatch league and his junkrat is amazing. The way Jake uses those double mines and traps is on a whole other level from every other DPS. So please don\u0027t say J LUL K E can\u0027t aim.\t1\nJ PogChamp K E J PogChamp K E J PogChamp K E J PogChamp K E\t1\nJ LUL K E AGAIN\t1\nJ ResidentSleeper K E R ResidentSleeper T\t1\nJ LUL K E! J LUL K E! J LUL K E!\t1\nC9 J LUL A K E\t1\nJ L U L K E\t1\nJ LUL K E stop throwing LUL\t1\ncome here to see J LUL K E solo ulti Tbag\t1\nJ LUL K E 15\t1\nJ LUL K E 1 6 %\t1\nLUL I AM CHAT LUL I SPAM J LUL K E LUL\t1\nJ LOL K E\t1\nJ forsenDED K E\t1\nwhy is J LuL K E mad?\t1\n200 IQ J LUL K E\t1\nJ LUL K E zz\t1\nALL J LUL K E R A T maps\t1\nJ LUL K E TRACERRR??\t1\nJ LU K E\t1\nJ A K E ?\t1\nJ LKUL K E\t1\n1-4 LULJ LUL K E\t1\nwhat a j LUL k e\t1\n@xQcOW J LUL A K E is mad because jake is bad\t1\nMONKAJ LUL K E\t1\nJ LUL K E waiting room ResidentSleeper\t1\nJ LUL K E R A T J LUL K E\t1\nJ LUL K E HALF ULT ALREADY\t1\nJ LUL K E ...\t1\nJ LUL K E GONE\t1\nJ A K E PogChamp\t1\nJ LUL K E E\t1\n90% of the res are for J LUL K E\t1\nj LUL k e cannot make playoffs\t1\nJ SabaPing K E\t1\nNO J LUL K E R A T NO PROBLEM\t1\nJ LUL K E not on junkrat forsenOMEGA\t1\nget out of here J A K E\t1\nJ LUL A K E RAT\t1\nJ LUL K E R LUL T E\t1\nNo J LUL K E\t1\nJ xqcBot K E\t1\nJ LUL K E gum\t1\nJ XQCO K E\t1\nJ LUL K E ULT\t1\nJ A K E h3h3Triggered1 h3h3Triggered2 h3h3Triggered3\t1\nJ LUL K E haHAA\t1\nJ FreakinStinkin K E\t1\nJ LUL K E NA ULT\t1\nJ LUL K ET R LUL S H\t1\nRemember J LUL K E\t1\nJ LUL K E CRYING BibleThump\t1\nJ LUL K E ;;;\t1\nJ LUL K E vs J xqcO K E\t1\nJ LUL K E J LUL K E I N G\t1\nJ PogChamp N K E R T O W N\t1\n@Temulence xxxGH xxxTY J LuL k E @Julekarem ....J LuL k E xxxFR xxxIE ..\t1\nJ LuL K E JAKE LuL\t1\nJ LUL K E 1V1\t1\nJ A lul K E\t1\nJ oamWHIFF K E\t1\nJ LUL K E R T\t1\nJ LuL K E ACTIVATED LONG HAVE WE WAITED KOREANS ELIMINATED\t1\nJ LUL K E AIM LUL\t1\nJ XD K E\t1\nTTours J LuL K E TTours\t1\nJ UL K E\t1\nJ LuL K E J LuL K E J LuL K E J LuL K E J LuL K E\t1\nJ jeffhCheese K E\t1\nJ LUL K E PHARAH\t1\nJ LUL K E 14\t1\nNo J LUL K E R A T on TB\t1\nKeep playing that J PogChamp K E R A T FTW\t1\nOutlaws with J LUL K E \u003d ResidentSleeper Outlaws with Mendo \u003d PogChamp\t1\nJ LUL K E SO USELESS\t1\nJ LUL K E throwing\t1\nJ (puke) K E . . .\t1\nJ LUL K E is M 😡 D because he\u0027s B Kappa D\t1\nJ LUL K E BibleThump\t1\nL I T T L E J LUL K E\t1\nJ PogChamp K E CAN DIE IN A L PogChamp KE\t1\nwait AGAIN for J LUL K E\t1\nJ LUL K E CARRY\t1\nJ LUL K E \u003d J O K E\t1\nHARRY POTTER AND THE J LUL K E\t1\n16% J LUL K E\t1\ntime for some J LUL K E\t1\nJ :LUL: K E\t1\nJ LUL K E VIS LUL R\t1\nJ LUL K E trancer\t1\nLETS GO J LUL K E !!!!!!!!!!\t1\nJ :LUL: K E R A T\t1\n\\J LUL K E R A T\t1\nJ KUL K E\t1\nJ LUL K E always dies first LUL\t1\nJ LUL K E T H R E W\t1\nGivePLZ Houston GivePLZ take GivePLZ our GivePLZ J LUL K E GivePLZ\t1\nJ LUL K E incoming\t1\nJ FailFish K E WADDA JOKE\t1\nJ LUL A K E 76\t1\nJ BabyRage K E\t1\nJ LUL K E TIME BABY\t1\nJ jermaRat K E\t1\nJ jaseAmazing K E\t1\nJ StinkyCheese K E\t1\nJ forsenOMEGA A K E\t1\nJ LUL K E 4\t1\nomg J LUL K E\t1\nJ LUL K E REKT! lolololololol\t1\nJ J LUL K E N A K\t1\nJ LUL K E \u003d BAD\t1\nJ LUL K E ESPORTS READY\t1\nwhy is everyone typing \"J LUL K E\"??\t1\nJ LUL K E haHAA J OMEGALUL K E PogChamp\t1\nPROFIT \u003e J LUL K E\t1\nL PogChamp N D PogChamp N \u003e J LUL K E\t1\nJ LUL K E GETTING CARRIED AS USUAL\t1\nGivePLZ J LUL K E GivePLZ TAKE GivePLZ MY GivePLZ LUL GivePLZ\t1\nJ LUL K EJ LUL K EJ LUL K EJ LUL K E\t1\nJ xqcO K E IS MAD BECAUSE HE IS BAD\t1\nJ LUL LUL LUL LUL K E\t1\nJ LUL K E HAHAHAH\t1\nJ xqcO K E R A T again\t1\nJ LUL C K E T\t1\nJ a k e L U L\t1\nJ RareParrot A K E\t1\nJ xqcO K E J xqcO K E J xqcO K E J xqcO K E\t1\nJ :lul A K E\t1\nJ TwitchUnity K E\t1\nJ A LUL K E E\t1\nJ LUL K E .F. R A T\t1\nJ LUL LUL LUL K E\t1\nJ LUL K E M LUL D CUZ B LUL D\t1\nJ woopsXD K E\t1\nJ LUL K E B I R D\t1\nJ LUL K E WADDA JOKE\t1\nLOLOLOLOLOLOLOL J LUL K E REKT!\t1\nJAKE CAN ONLY PLAY J LUL K E R A T LUL\t1\nSKILLESS LUL J LUL K E\t1\nJ 16% K E\t1\nBECAUSE J LUL K E IS BAD\t1\nWe might get J LUL K E R A T again.\t1\nJ LUL K E S K I L L\t1\nJ LUL K E R A T ACTIVATED\t1\nEZ CLAP J LUL K E\t1\nTOXIC J LUL K E\t1\nHouston OUTLAWS!!! Let\u0027s go J LUL K E\t1\nJ GivePLZ A K E\t1\nJ L LUL L K E\t1\nL PogChamp N K Z R \u0026 J LUL K E\t1\nSWITCH MENDO FOR J LUL K E THE BOT\t1\nJ LUL K E 76 PogChamp PogChamp\t1\nJ LUL K E \"AIM \"\t1\nI don\u0027t know why Jake is a meme it should not. he is such a bad player and I refuse to spam J LUL K E\t1\nJ PogChamp K e\t1\nJ LUL K E still on junk\t1\nJ LUL K E Down\t1\nJ LUL K E R AT\t1\nJ LUL K E \u003d 0 Ultmate Kills\t1\nNot J LUL K E\t1\nj LUL k e r a t\t1\nJ LuL K E J LuL K E J LuL K E J LuL K E\t1\nJ LUL K E RAT LUL\t1\n1-1 J LUL A K E\t1\nJ LUL K E PogChamp\t1\nJ LUL K E TIRE BOT\t1\ntmobilemvp J LUL K E\t1\nJ LUL K E IS M LUL D\t1\nJ moon2DUMB K E\t1\nj LUL k e rat strikes again\t1\nJ jjonackLuL K EJ jjonackLuL K EJ jjonackLuL K E\t1\nnice tracer J LUL K E\t1\nJ LUL K Eeeee\t1\nLena \"J LUL K E\" Oxton\t1\nfigured J LUL K E out\t1\nlondon couldnt even beat J LUL K E\t1\nJ LUL K E \u003d B A D BibleThump\t1\nJust J LUL K E\t1\nJ LUL K E is mad because he is J LUL K E\t1\nJ LUL K E ResidentSleeper\t1\nJ gamelifeGasm A K E\t1\nLINKZR\u003eJ LUL K E\t1\nJ BibleThump k e\t1\nJ PigChamp K E\t1\nJ dc1086AWK K E\t1\nJ LLU K E\t1\nBig Brain J LUL K E\t1\nNO J LUL K E R A T\t1\nJ ShazBotstix A K E\t1\nJ PogChamp K E J PogChamp K E\t1\nJ LUL K E vs Profit LUL\t1\nJ KappaHD K E\t1\nJebaited J LUL K E OUTDATED Jebaited DREAMKAZPER OVERDATED Jebaited J PogChamp K E ACTIVATED Jebaited\t1\nNO J LUL K E RAT NO WIN\t1\nJ LUL K E T R LUL P\t1\nJ LUL LUL LUL LUL LUL LUL LUL K E\t1\nJ c9 K E\t1\nJ naviPeepo K E\t1\nW A D D A J O K E\t1\nValiant \u003e J LUL K E\t1\nJ moon2S K E\t1\nJ LUL K E lol\t1\n2cp LUL c9 LUL J LUL K E\t1\nX PogChamp C and J LUL K E\t1\nJ LUL K E PLSS\t1\nJ LUL K E 12\t1\n#GRENNWALL J LUL K E\t1\nJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K EJ LUL K E\t1\nJ eveaHeart K E\t1\nJ LUL K E\u0027s awareness is good LUL\t1\nJ LUL K E !!\t1\nJ LUL K E soldier\t1\nDreamkasper is magic J LUL K E is Tragic\t1\n@Temulence xxxGH xxxTY J LuL k E @Julekarem ...J LuL k E xxxFR xxxIE\t1\nthe spam of the \"Not gonna spam J LUL K E\"\t1\nJ LUL K E MAD BECAUSE BAD\t1\nJ LUL A K E IS MAD ?\t1\nJ LUL K E ISNT PLAYING JUNKRAT HE MUST BE THROWING\t1\nJ MingLee K E\t1\nJ LUL K EBAD CAMERA WORK LUL 4HEADJUNKRAT BABYRAGEKOREANS ARE OPKOREANS SUCKPLAT CHAT\t1\nJ LUL K EW\t1\nGET J LUL K E D\t1\nJ LUL A K E R LUL T\t1\nJ A K E is M A D because J A K E is B A D\t1\nJ LUL L E K A R E M @Temulence xxxGH xxxTY J LuL k E @Julekarem ....J LuL k E xxxFR xxxIE .\t1\nJ LUL K E 9 OMEGALUL\t1\nJ LUL K E \u003d Player 66 LUL\t1\nJ LUL K E is Mad Because He Is BAAAAD\t1\nJ LUL K E ???\t1\nJ LUL K E on literally any hero but junkrat LUL\t1\nلماذا هو جيك حتى ميمي؟ هل حقا غير محتمل جدا وغبي حتى أعتقد أن مضحك لها؟ كنت مجرد نشره مثل نوعه من نكتة، عندما في الواقع، جيك هو لاعب خطير في الجزء العلوي من لعبته، ويستحق احترامكم. لهذا السبب، أنا أرفض البريد المزعج J لول كي! J LUL K E\t1\n\u0001ACTION J LUL K E\u0001\t1\nJ LUL K E MAD LUL CAUSE LUL BAD LUL\t1\nJ KomodoHype k e\t1\nJ SSSsss K E\t1\nJ OmegaLUL K E\t1\nJ LUL K E R A T W H E E L\t1\nJ SCUM K E\t1\nJ LUL K E KEYPLAYER\t1\nJ A K E I S G A R B A G E\t1\nj 0 k e\t1\nJ xqcO k e\t1\nJ LUL K E throw\t1\nDIYA BETTER THAN J LUL K E OMEGALULLLL\t1\nKreygasm J LUL K E Kreygasm\t1\nSWITCH MENDO WITH J LUL K E\t1\n2 J PogChamp K E S PogChamp\t1\nJ LUL K E Is throwing OMEGA LUL\t1\nGARBAGE FLEX J LUL K E\t1\nJ lirikLUL K E\t1\nJ LUL K E in the chat right now\t1\nJ LuL K E vs J LUL K E\t1\nJ LUL K E ON TRACER\t1\nJ naroXD K E\t1\nj PogChamp k e\t1\nJ LUL K E Throw\t1\nprepare yourselves for the \"J LUL K E\" spam\t1\nPLEASE J LUL K E LOSE\t1\nJ LUL K E NOT ON J LUL K E R A T\t1\nJ Jebaited K E .\t1\nJ LUL K E R\t1\nNice Tire J LUL K E\t1\nJ LUL K E OUTSKILLED LUL\t1\nJ LUL K E on TRACER LUL\t1\nJ LUL K E NEED HEALING\t1\nO M E G A J A K E\t1\n6-6 LUL J LUL K E\t1\nJ FishMoley K E\t1\nHOUSTON WITHOUT J LUL K E R A T IS A LUL\t1\n6-6 J LUL K E\t1\nWhen peeps say they wont spam \"J LUL K E\"\t1\nJ mumaChamp K E\t1\nPOCKETED J LUL K E\t1\nJ LUL K E\\\t1\nJ LUL K E D ON\t1\nJ LUL K E not playing soldier.\t1\ni just came back after 1 hour and its really nice to not see \"J LUL K E\" every .3 seconds\t1\nmoon21 moon22 J LUL K E J LUL K E moon23 moon24\t1\nJ Kappa A K E\t1\nJ LUL K E AS JUNKRAT LUL\t1\nJ LUL K E 8\t1\nJ LUL K E IS MAD BECAUSE JE IS BAD\t1\nJ LUL K ERAT\t1\nJAKE GOT J LUL K E D\t1\nOutlaws can\u0027t carry J LUL K E RAT\t1\nJ LUL K E R A T T I R E\t1\nNA ULT J ResidentSleeper A K E\t1\nJ LUL K E IS B LUL D\t1\nJ mumaWenstun K E\t1\nJ LUL K E \u003e bronzies who call \"platchat\"\t1\nJ LUL K E needs redbull Kappa Kappa\t1\nJ 4Head K E ?\t1\nJ 4Head A K E\t1\nJ DansGame A K E\t1\nM KappaPride M A \u0026 J LUL K E\t1\nno J LUL K E R A T\t1\nJ LUL K E ? More like JOKE\t1\nM KappaPride M A \u0026 J LUL K E \u0026 WutFace WutFace WutFace WutFace WutFace WutFace\t1\nJ LUL K E S T LUL T S\t1\nJ OpieOP K E\t1\nJ LUL K E OUTDATED PogChamp LONG HAVE WE WAITED PogChamp ACTUAL SKILL ACTIVATED\t1\nJ PogChamp K E 7 6\t1\nJ PogChamp K E]\t1\nLets all be real here....this whole day is all about J LUL K E\t1\n@Cypii J xqcO K E\t1\nJ Resident N K E R T O W N\t1\nJ LUL K E getting a taste of his own medicine LUL\t1\nJ LuL k e\t1\nJ Omegalul K E\t1\nJ LUL K ER\t1\nJ LUL K E IS MAD BC HE IS BAD\t1\nSALTY J LUL K E\t1\nJ sodaLUL K E\t1\nJ LUL K E ASIDE\t1\nNo J LUL K E R A T NO WIN\t1\nJ LUL K E r a t\t1\nJ LUL K E j\t1\nJ LUL K E PULSE\t1\nJ LUL K E!!\t1\nJ DansGame N K E R T O W N\t1\n16% ACCURACY J LUL K E\t1\nJ LUL K E haha so cheap\t1\nJ xqcO A K EJ xqcO A K E\t1\nJ LUL K E got O U T J LUL K E D\t1\nJ xqcO K E xqcJ\t1\nJ LUL K E TIME J LUL K E TIME\t1\nJ LUL K E NA PULSE\t1\nJ LUL K E the Rat\t1\nJ a K e\t1\nJ lul A K E\t1\nnooooo cmon J LUL A K E\t1\nJ LUL K E getting carried\t1\nJ LUL KE IS A J OMEGALUL K E\t1\nCome on J LUL K E Show em your S N LUL K E\t1\nGO J LUL K E\t1\nJ LUL K E is trash\t1\nJ :LuL: A K E\t1\nJ PogChamp K E SPAM\t1\nJ PogChamp A K E!\t1\nJ A K E I S B A D B E C A U S E H E I S B A D\t1\nJ LUL K E OLD? LUL\t1\nJ foxipoCry K E\t1\nHouston has J LUL K E so you cant go wrong\t1\nJ :LUL: A K E\t1\nL PogChamp N K Z R J LUL K E\t1\nJ PogChamp K E CAN DIE IN A LAKE\t1\nJ LUL K E Bad without Junkrat\t1\nJ xqcO K E J xqcO K E J xqcO K E\t1\nJ LUL K E THROWING AS ALWAYS\t1\nis chat ready for some J LUL K E ??!!\t1\nJ LUL K E Jebaited HOUSTON OUTDATED Jebaited JAKERAT OVERRATED Jebaited LONG HAVE WE AWAITED Jebaited UPRISING ACTIVATED Jebaited\t1\nJ PogChampe K E\t1\nJ LUL K E only good at Junkrat\t1\nJ LUL K E N A K\t1\nJ LUL K E T O W N\t1\njake is a J kephriiSALT K E\t1\nvJ LUL K E\t1\nomg the J LUL K E R A T again here he comes\t1\nJ LUL K E so useless\t1\nJ BabyRage A K E\t1\nAIR J LUL K E\t1\nJ LUL K E is worse than chat\t1\nJ \u003e\u003ex\u003c\u003c K E\t1\nJ LUL K E aim\t1\nPress 3 if J LUL K E is mad because he is bad\t1\nStill better than J LUL K E\t1\nJ LUL K E hide in a room and spam nades J LUL K E\t1\nJ LUL K E C LUL R R Y\t1\nJ LUL K E Tracer\t1\nJ LUL K E SO BAD\t1\nIm going to enjoy watching London tare Houston a new one. J LUL K E\t1\nI want to see J LUL K E play\t1\nJ (puke) K E !\t1\nFINE J LUL K E\t1\nJ LUL K E ezClap\t1\nJ PogChamp K E R PogChamp T\t1\nJ LUL K EJ LUL K E\t1\nJ LUL K E Positioning\t1\nJ LUL C K E D\t1\nJ LUL K E IZ MAD CAUSE HES BD\t1\nJ LUL K E R A T A R E K LUL J\t1\nJ LUL K E is m LUL d cos he is b LUL d\t1\nJ moon2MM K E\t1\noutJ LUL K Ed\t1\nJ dafranBrain K E\t1\nJ moon2F K E\t1\nJ LUL K E STAR\t1\nJ LUL K E TIRE. OT\t1\nJ BibleThump K E is mad bc he is bad\t1\nJ LUL K E USELESS LUL\t1\nJ EZ K E\t1\nJ THROW K E\t1\nJ seagHeals K E\t1\nj LUL k e .\t1\nJ LUL K E R I P\t1\nGET J LUL K ED\t1\nJ OMEGALUL K E R A T\t1\nwatch J LUL K E cry\t1\nJ haHAA K E btw\t1\nCan someone explain J LUL K E?\t1\nJ foxipoPeka K EJ foxipoPeka K E\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518320254877_2080961467",
+      "id": "20180211-123734_928252825",
+      "dateCreated": "Feb 11, 2018 12:37:34 PM",
+      "dateStarted": "Feb 11, 2018 5:39:15 PM",
+      "dateFinished": "Feb 11, 2018 5:39:16 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where lower(msg) like \"%옵%\" order by time",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 3:47:53 PM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300.0,
+              "optionOpen": true,
+              "setting": {
+                "multiBarChart": {}
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "time",
+                  "index": 0.0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "msg",
+                  "index": 3.0,
+                  "aggr": "count"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tchannel\tname\tmsg\n00:00\t#overwatchleague_kr\ttnt7213\t옵치리그 따효니보다 시청자수 적은거 실화냐\n00:12\t#overwatchleague_kr\tgtwind17\t옵저빙 센스 무엇...\n00:19\t#overwatchleague_kr\tlevel99999\t근데 이상한짓 하는건 왜 옵저빙 하지\n00:20\t#overwatchleague_kr\thasd3458\t옵저버 티배깅 하는것만 잘 잡네\n00:35\t#overwatchleague_kr\tkjo9956\t경기 수준도 옵저버도 ㅎㅌㅊㅋㅋㅋ\n00:35\t#overwatchleague_kr\ta2q2\t옵져버도 문제\n00:35\t#overwatchleague_kr\tjuno8910\t옵져버 수듄;\n00:35\t#overwatchleague_kr\thew0818\t옵져버도 몰랏다\n00:35\t#overwatchleague_kr\tmyeonggu\t아니 해설 옵저버 진짜 뭐하자ㅣ?\n00:36\t#overwatchleague_kr\toswungju12345\t옵저버도 당황한 c9\n00:36\t#overwatchleague_kr\tshtldnr95\t옵져버 쉐번용검에 놀라서 거점 먹힌줄도 몰라버렸자너~ ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n00:37\t#overwatchleague_kr\tqhghks0208\t옵치하시는분 오늘 갗이하실분~친추하게 닉 좀 불러줘요\n00:37\t#overwatchleague_kr\tgemiman111\t그래도 옵저버 그것도 발전한거임\n00:37\t#overwatchleague_kr\tjuno8910\t옵져버들도 딜충이라 딜러가 궁쓰면 그 딜러만 비춤 ㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n00:43\t#overwatchleague_kr\tdltntjd456\t옵저버 왠일\n00:46\t#overwatchleague_kr\tez_calp\t아니 저런건 옵저빙 잘하네 미침ㅋㅋㅋ\n00:47\t#overwatchleague_kr\tqkrtlsdn0458\t옵치는 한물을넘어서 갔어..\n00:55\t#overwatchleague_kr\thsc8931\t왜 클로저 안쓰지? 플옵을 위해 숨기는건가?\n00:57\t#overwatchleague_kr\tlevel99999\t옵치 리그는 강등 개념이 없음\n01:00\t#overwatchleague_kr\thyung0328\t옵치계의 리버플아스날 서울 서중딱\n01:04\t#overwatchleague_kr\tmrshane01\t옵저버 노니\n01:05\t#overwatchleague_kr\trevthon\t옵저버진짜너무하네 킬피드만 쳐다봐야하나\n01:08\t#overwatchleague_kr\tlevel99999\t옵치는 거점과 화물을 보는 경기다...\n01:13\t#overwatchleague_kr\tdudulus78\t기술자가 옵저빙 하면 안됨\n01:13\t#overwatchleague_kr\t0401themystic\t옵저버도 집중좀하자 야\n01:13\t#overwatchleague_kr\tavocado1203\t옵저버 졸고있닠ㅋㅋㅋ\n01:20\t#overwatchleague_kr\tbms0212\t옵저버사람이냐\n01:21\t#overwatchleague_kr\tlarue3286\t이건 옵저버 잘했네 ㅋㅋㅋㅋ\n01:22\t#overwatchleague_kr\tfactriot_\tㅇㅇ 이거 끝나고 플옵 이어서 함\n01:34\t#overwatchleague_kr\tmr_bing9\t옵시세낔ㅋㅋㅋㅋㅋㅋㅋ\n01:39\t#overwatchleague_kr\tavocado1203\t옵저버도 멘탈 나갔나보다...\n01:39\t#overwatchleague_kr\tshtldnr95\tㅋㅋㅋㅋ 해설들 옵저버가 개답답한갑다ㅋㅋㅋ 여기봐야해요!!!\n01:39\t#overwatchleague_kr\tkjo9956\t옵저벜ㅋㅋㅋ\n01:39\t#overwatchleague_kr\thjzza36\t옵져빙 시~~~ㅂ 브론즈야?\n01:40\t#overwatchleague_kr\thhnoni\t옵저버 파라 개조아하네ㅡㅡ 파라만 나오면 카메라 고정픽임\n01:41\t#overwatchleague_kr\tgusdbs0602\t오픈디비전 옵저버가 더좋은듯\n01:41\t#overwatchleague_kr\tmhch5005\t해설은 바뀌기라도 하지 옵저버는 쉬지도 못하고 ㅋㅋㅋㅋ\n01:41\t#overwatchleague_kr\tjinayoung94\t옵저빙 능력이 안되니 느리게 움직이는 파라만 잡는듯\n01:41\t#overwatchleague_kr\toswungju12345\t아니 3경기 전부 풀세트 가는데 옵저버 당연히 지치지 생각 없냐?\n01:42\t#overwatchleague_kr\tyangwenli0404\t옵저버 : 죽... 여... 줘....\n01:42\t#overwatchleague_kr\thiano1\t옵저버 한명아님..\n01:42\t#overwatchleague_kr\tdmagkt\t옵저버 원래 지 일 못하는데 뭐 ㅋㅋㅋ\n01:42\t#overwatchleague_kr\tacegone7039\t옵저버 쉴드가 하나 있네 역겹\n01:42\t#overwatchleague_kr\tlevel99999\t옵저버는 일좀 해야대\n01:42\t#overwatchleague_kr\tqaz24680qaz\t옵저버들 양키라 멍청함\n01:42\t#overwatchleague_kr\tjasing0416\t옵저버 프로그램 걸어놓고 자는거 아닌가\n01:42\t#overwatchleague_kr\tshtldnr95\t옵져버 오늘 경기 길어질거 예상하고 체력아낀거랍니다 조용히 해주세요\n01:42\t#overwatchleague_kr\tgusdbs0602\t아니 원래 조금 옵저버가 심각했어..\n01:46\t#overwatchleague_kr\tsgwj0801\t진짜 옵저버 뇌 있는거 맞냐\n01:46\t#overwatchleague_kr\tryus94\t옵저버 장난하나\n01:49\t#overwatchleague_kr\tdlgusn112\t옵저버는 비추지도 못하네\n01:49\t#overwatchleague_kr\tshtldnr95\t아니 옵져버가 일을 안하니까 킬로그만 보게되자너 ㅠㅠ\n01:53\t#overwatchleague_kr\tpmk0901\t저 옵치는 메르시잡으면 끝인게임인데 결과는 뭐..\n01:55\t#overwatchleague_kr\tpnnmoely\t플옵도 이분들이 하시나요 ㅋㅋ\n02:01\t#overwatchleague_kr\tdarkcello\t옵치리그 한주시냐\n02:02\t#overwatchleague_kr\tmrshane01\tㄹㅇ 옵저버만고치면...\n02:02\t#overwatchleague_kr\tckdrkwhr\t옵저버만 고치면 좋은리그\n02:04\t#overwatchleague_kr\tmindol_\t밥먹고 옵시다 ㅋㅋㅋ\n02:13\t#overwatchleague_kr\tthdgksq\t휴스턴 옵치리그의 탈김치화 가즈아ㅏㅏㅏㅏㅏㅏ\n02:15\t#overwatchleague_kr\tlucky__jack__\t휴스턴 야구도 잘하고 옵치도 잘하네 ㅎㅅㅎ\n02:15\t#overwatchleague_kr\taszx5714\t시나트라는 나이땜에 못나옵니다ㅠ\n02:15\t#overwatchleague_kr\tkimgaga\t뉨들 뉨들 옵치 대회 왜 5천명 박에 안봄\n02:18\t#overwatchleague_kr\tmoondancerr\t옵치는 밴시스템 절대안나옴\n02:19\t#overwatchleague_kr\thaibaracube\t플옵이라고\n02:24\t#overwatchleague_kr\tlimmh0812\t옵드컵 하나무라 플라워 급\n02:25\t#overwatchleague_kr\teukyumkim\t아니 옵저버 뭐하냐\n02:25\t#overwatchleague_kr\t00ben000\t옵저버 아 암걸려\n02:27\t#overwatchleague_kr\tnono8515\t야 옵치 개지미있어지네 ㅋㅋㅋㅋ\n02:39\t#overwatchleague_kr\tdalucky77\t옵저버 맥크리밖에 못잡음???? 뭐냐 옵저버\n02:40\t#overwatchleague_kr\tdalucky77\t옵저버 뭐하냐고\n02:40\t#overwatchleague_kr\tbnm2455\t옵저버진짜 ㅋㅋ\n02:40\t#overwatchleague_kr\triebird\t옵더버 진짜 ㅡㅡ\n02:40\t#overwatchleague_kr\tahapxnrr\t아니 옵저버 머임?\n02:40\t#overwatchleague_kr\tparang932\t옵저버님 제발\n02:40\t#overwatchleague_kr\tmsg6462\t옵저버 ㅋㅋㅋㅋㅋㅋㅋ\n02:40\t#overwatchleague_kr\tlarue3286\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 옵저버 이 망할 것들아\n02:40\t#overwatchleague_kr\tals1120\t아 옵저버 제빌///\n02:41\t#overwatchleague_kr\tbnm2455\t옵저버 사람이냐 ㅋㅋ\n02:41\t#overwatchleague_kr\tmafia879\t아니 방금 한타 1도 안보여주고 빤스런만 보여주는 옵저버 무엇?\n02:41\t#overwatchleague_kr\tbbn1128\t옵저버 컹스\n02:41\t#overwatchleague_kr\tsocg\t카스중계나 하러가라 옵저버놈들\n02:41\t#overwatchleague_kr\tlikeshark54\t옵저버 잠온다자나 ㅡㅡ\n02:41\t#overwatchleague_kr\txvwv\tㄱㅋㄱㅋㄱㄱㅋㄱ옵저버 ㅋㅋㄱ\n02:41\t#overwatchleague_kr\tillusia1907\t옵저버 실화냐\n02:41\t#overwatchleague_kr\tmsato7\t옵 ㅋㅋㅋㅋㅋㅋ\n02:41\t#overwatchleague_kr\tsuyeanjong\t옵저버 미쳣다 사람이냐\n02:41\t#overwatchleague_kr\tmsato7\t옵 졸 못한다\n02:41\t#overwatchleague_kr\thonmono2000\t옵저버 아무것도 못보네 ㅋㅋㅋㅋㅋㅋㅋㅋ\n02:45\t#overwatchleague_kr\txvwv\t옵치리그중인데 올림픽을 보고자빠졋노\n02:53\t#overwatchleague_kr\txvwv\t옵치리그 갓갓 ㅇㅈ합니다\n02:53\t#overwatchleague_kr\tchoikang159123\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ루나틱하이에 군림 보랑 맛종1욱이 있는 이상 옵치리그는 루나틱하이가 우승하는거 확정이다 ㅋㅋㅋㅋㅅㄱ\n02:59\t#overwatchleague_kr\ttlingel\t옵벤인줄\n03:00\t#overwatchleague_kr\tsamchoon\t옵알못인데\n03:04\t#overwatchleague_kr\tpnnmoely\t쿨맷 옵드컵때는 존재감 없었던거 같은데..대단\n03:05\t#overwatchleague_kr\thunnambk\t근데 옵저버는 진짜 답답하네\n03:14\t#overwatchleague_kr\thunnambk\t옵저버 쫌 !!\n03:15\t#overwatchleague_kr\tturnxing\t옵저버 이걸안잡아준거냐?\n03:17\t#overwatchleague_kr\twhite170305\t한국이밖에 없는 옵치리그에 휴스턴의 6명의 외국인은 돌진메타를 대항한 유일한 팀이였다\n03:21\t#overwatchleague_kr\tkksook\t지금 플옵중이에요??\n03:24\t#overwatchleague_kr\tekfl1230\t리스폰맞출려고 살리지 옵알못아\n03:30\t#overwatchleague_kr\tehdwls7023\t난 좀 이해안가는데 옵드컵 국대애들한테 발린게 3명이나 있는팀이 휴스턴인데\n03:35\t#overwatchleague_kr\tssjharry\t옵치리그 결승도 결국 한국대 한국이네...\n03:43\t#overwatchleague_kr\tnalrarinol\t옵치가 하고싶네\n03:44\t#overwatchleague_kr\tkn0916\t옵치한판ㅋㅋㅋㅋ\n03:44\t#overwatchleague_kr\tcjswoshfdl2\t한국은 옵치같은거 못만듬\n03:44\t#overwatchleague_kr\tdo_you_know_dozagi\t옵치한판?\n03:44\t#overwatchleague_kr\tk8s7j0308\t옵치를 한국이 개발 하는게 불가능함 애초에\n03:44\t#overwatchleague_kr\takdrh54\t옵치광고가 더 병맛이었는데 ㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n03:45\t#overwatchleague_kr\tswanyard22\t옵치한판 개오글거려\n03:45\t#overwatchleague_kr\takdrh54\t한국에서 옵치만들었으면 기본캐릭 솔저밖에없음\n03:49\t#overwatchleague_kr\tlevel99999\t타이틀 매치는 상금과 명예는 있는데 여기서 승리하는건 플옵에 영향은 안줌\n03:49\t#overwatchleague_kr\tbbn1128\t그냥 옵치 음악틀어주지\n03:50\t#overwatchleague_kr\tk8s7j0308\t옵치 리그는 준비 많이하더니 완전 제대로 하네\n03:53\t#overwatchleague_kr\t0_0story\t쪼낙이 야타 1위인건 옵알못도 알아..\n03:57\t#overwatchleague_kr\tsunhe430\t그 옵드컵 오픈마이크?\n03:58\t#overwatchleague_kr\train9511\t윤루트 왜 옵치하냐???\n04:02\t#overwatchleague_kr\tsettoo11\t한국인만 흥하면 옵치 흥행못함\n04:02\t#overwatchleague_kr\tmake4play\t팻두가 왜나왔냐??팻두 옵치에서 파인이라는 이름으로 활동중??\n04:07\t#overwatchleague_kr\tk8s7j0308\t옵치는 기세잖어\n04:07\t#overwatchleague_kr\tjustme_0\t옵저버 뭐함??? TTours\n04:08\t#overwatchleague_kr\tpoison8722\t옵저버 진짜\n04:08\t#overwatchleague_kr\tkhk9003\t옵저버 저걸 좀 잡아줘;;;\n04:08\t#overwatchleague_kr\txvwv\t아니 옵저버 뭐해\n04:08\t#overwatchleague_kr\tbishop5692\t옵저버 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n04:08\t#overwatchleague_kr\ttsj01008\t아니 옵저버뭐하냐\n04:08\t#overwatchleague_kr\tkimjh94122\t옵저버 뭐하냐\n04:08\t#overwatchleague_kr\treal0131\t옵져버 뭐하냐\n04:08\t#overwatchleague_kr\tvlwl0002\t옵저버 씨펄\n04:08\t#overwatchleague_kr\tlkc52\t옵저버 ㅅ ㅣ ㅂ 알\n04:08\t#overwatchleague_kr\tghkfydtl\t옵저버 모함?\n04:08\t#overwatchleague_kr\thyesoo96\t옵저버모래\n04:08\t#overwatchleague_kr\tkyoranheykids\t아니근데 옵저버 ㅠㅠ\n04:08\t#overwatchleague_kr\tdhgh0209\t옵저버\n04:08\t#overwatchleague_kr\ttaesan512\t옵저버;\u0027;\n04:08\t#overwatchleague_kr\tdbsckddud2\t아 옵저버 시~발아 머하냐??????\n04:08\t#overwatchleague_kr\tllordweasel\t옵저버님!!!!!!!!!!\n04:08\t#overwatchleague_kr\tyogmang\t옵저버 시바라\n04:08\t#overwatchleague_kr\tnono7117\t옵져버 진짜ㅋㅋㅋㅋㅋ 이걸 안보여주네\n04:08\t#overwatchleague_kr\tmk007755\t옵저버 맞을래\n04:08\t#overwatchleague_kr\t098ghdtka\t아니 옵져버 뭐해\n04:08\t#overwatchleague_kr\timoterrity\t옵저버;;\n04:08\t#overwatchleague_kr\trualamperge\t옵저버\n04:08\t#overwatchleague_kr\tert456123\t옵저버 ㄱ놈아\n04:08\t#overwatchleague_kr\tvmqpr11\t옵져버머하냐\n04:08\t#overwatchleague_kr\tskytndud156\t옵저버 ㅅㅂ\n04:08\t#overwatchleague_kr\tanewlakekcu1215\t옵저버 일해라\n04:08\t#overwatchleague_kr\tlsm502902\t옵저버 ㅅㅂ\n04:08\t#overwatchleague_kr\trieberrits\t옵저버 뭐하니 ㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ\n04:08\t#overwatchleague_kr\tspringonion_\t아진짜 옵저버 ㅄ아\n04:08\t#overwatchleague_kr\tsister8755\t옵저버 뭐해\n04:08\t#overwatchleague_kr\tgjsdl111123\t옵저버 뭐하냐\n04:08\t#overwatchleague_kr\txhfptmtm\t옵저버\n04:08\t#overwatchleague_kr\tyooa0917\t옵저버 ㅅㅂ아\n04:08\t#overwatchleague_kr\twnduqsla1234\t옵저버 ㅄ새끼\n04:08\t#overwatchleague_kr\thyerin33\t옵저버 일좀\n04:08\t#overwatchleague_kr\tyooluv022\t옵저버 ㅅㅂ\n04:08\t#overwatchleague_kr\tred_48\t아니 옵저버 하..\n04:08\t#overwatchleague_kr\tghoodlife\t옵저버무엇;\n04:08\t#overwatchleague_kr\tfletaariel92\t옵저버 진짜 극혐이네ㅋㅋㅋㅋㅋㅋ 호그는 왜 잡은 거임\n04:08\t#overwatchleague_kr\twnduqsla1234\t옵저버 진짜 답없네\n04:08\t#overwatchleague_kr\toreeor\t옵.저.버 ㅆ\u003e~ㅃ~\n04:08\t#overwatchleague_kr\tmiracleberry89\t옵저버 ㅅ......\n04:08\t#overwatchleague_kr\tjiwoosewook\t옵저버 개\n04:08\t#overwatchleague_kr\teriel1234\t옵저버님?\n04:08\t#overwatchleague_kr\tsister8755\t옵저버 자냐\n04:08\t#overwatchleague_kr\tdoapy1\t옵저버;;;;;\n04:08\t#overwatchleague_kr\ttodotdo\t뭐야 옵저ㅓ\n04:08\t#overwatchleague_kr\tchainsew09\t이 와중에 옵저버 뭐하냐\n04:08\t#overwatchleague_kr\taxf98\t옵저버 진짜 ㅅㅂ\n04:09\t#overwatchleague_kr\tmarveldy\t아니 4명죽이고나서 파인잡네 옵저버 ㅅ1ㅂ\n04:13\t#overwatchleague_kr\tfloatingglory\t옵저빙 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n04:14\t#overwatchleague_kr\tunifee\t옵저버 ..\n04:24\t#overwatchleague_kr\tdlwogkr1228\t화물 옆에서 한타뜨는거 옵저버가 잘 잡았네\n04:24\t#overwatchleague_kr\tju2110\t옵저버일한다\n04:24\t#overwatchleague_kr\thansub5\t버드링이 옵치계 홍진호 되냐? 설마\n04:24\t#overwatchleague_kr\tseok0527\t옵저버가 APEX 였으면 더 재밌었을텐데;;\n04:29\t#overwatchleague_kr\twon8123\t옵치리그 서울을 가장많이 챙겨주네\n04:37\t#overwatchleague_kr\ttpfkal124\t이태준 옵치함?\n04:38\t#overwatchleague_kr\tmsg6462\t옵저버\n04:40\t#overwatchleague_kr\teunpeee\t옵드컵이 기대된다\n04:41\t#overwatchleague_kr\tvicace1\t피셔는 지가뭐라도되는냥 옵치까더니 ㅋㅋㅋ밀렷네주전\n04:43\t#overwatchleague_kr\tdmadma12\t옵저버가 그냥 돌아가면서 한명씩 보여주는거아님? 그냥 시청자 아무나 갖다써도 될듯\n04:43\t#overwatchleague_kr\tyujin351\t생각해보니까 옵저버 잘하네 이번엔\n04:49\t#overwatchleague_kr\tratio7777\t오늘 옵저버 에이펙스 옵저버인가?\n04:50\t#overwatchleague_kr\tcjin4594\t옵알못ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n04:50\t#overwatchleague_kr\tmukchun\t옵알못보소\n04:50\t#overwatchleague_kr\thyuniejoo\t옵알못ㅋㅋㅋㅋㅋㅋ\n04:50\t#overwatchleague_kr\tshowdownmaro\t옵알못\n05:05\t#overwatchleague_kr\tratio7777\t오늘 옵저버가 수준이 틀린데\n05:05\t#overwatchleague_kr\tfamily848\t오늘 옵저빙 왜이리 좋음? 에이펙스 섭외함?\n05:06\t#overwatchleague_kr\tbbn1128\tㄹㅇ 옵치 본방보다가 한국방오면 미래에서온거\n05:37\t#overwatchleague_kr\ttax0194\t옵저버ㄱㅊ한데\n05:37\t#overwatchleague_kr\tking8614\t아니 오늘 옵저버 왤케 깔끔하게 잘하냐\n05:43\t#overwatchleague_kr\tcube125\t옵저버 뭐하냐\n05:47\t#overwatchleague_kr\tbeeftwo\t옵알못 무엇\n05:47\t#overwatchleague_kr\tjms020624\t그러먄 뭐해 옵저빙이 ㅄ인데\n05:53\t#overwatchleague_kr\tmsg6462\t옵저버;\n05:54\t#overwatchleague_kr\tmsg6462\t어후 2라운드되면 옵저버도 교체하자\n05:54\t#overwatchleague_kr\thak1516\t위매가 저래 잡아주는데 옵저빙 진짜 개같이하네\n05:55\t#overwatchleague_kr\tlarue3286\t새별비 옵드컵때부터 위도우 잘했지\n05:56\t#overwatchleague_kr\tgkswlsdl123\t옵저버 ㅆㅅㅌㅊ\n06:00\t#overwatchleague_kr\thjwi1801\t아니 옵저버 뭐해\n06:01\t#overwatchleague_kr\tpoison8722\t옵저버;\n06:01\t#overwatchleague_kr\tdecupleq\t옵저버 뭘 잡고 있는거야\n06:04\t#overwatchleague_kr\tcczzppyy\t이런거보면 타이무 진짜 옵잘알인데 대체 본인팀은 왜그런거냐\n06:05\t#overwatchleague_kr\teunc0812\t@ego1capital 이 사람 메갈님 ㅋ ㅋ 옵갤에도 올라옴\n06:08\t#overwatchleague_kr\tkn0916\t옵저버 쫌잘햇가\n06:11\t#overwatchleague_kr\tssakdook\t모오오옵 -\u003e 특수문자 도배에 주의해주세요. [경고]\n06:13\t#overwatchleague_kr\tssakdook\t모오오옵 -\u003e 유사 문장 반복에 주의해주세요. [경고]\n06:32\t#overwatchleague_kr\tcool_clean\t내일 옵치 트라이얼 재밌겠다 ㅎㅎ\n06:40\t#overwatchleague_kr\tjjangjin2001\t우측에 계신분 옵알못이에요?ㅇㅅㅇ\n06:54\t#overwatchleague_kr\tsain9160\t옵치인벤에서야쿠스가똥쌋다고하는데 트루?\n07:09\t#overwatchleague_kr\tgram1462\t플옵 진출권만 주는거아냐?\n07:19\t#overwatchleague_kr\ttpqms862\t새별비는 옵드컵때알아봄 기복없이계속잘해줌\n07:20\t#overwatchleague_kr\tsaintlaurrent\t류제홍이랑 햇을땐 옵드컵이라서 그런가요?\n07:21\t#overwatchleague_kr\tmarkofkarn\t서울 폼이 떨어졌다기 보다는...옵치에 급성정한 10대들이 많이 나타난거죠\n07:27\t#overwatchleague_kr\tparkjb94\t근데옵치대회관중들중에 왜다 아싸들처럼생김?ㄹㅇ\n07:30\t#overwatchleague_kr\tjjangjin2001\t한동안 옵치계를 떠났더니.ㅜㅜ\n07:30\t#overwatchleague_kr\txinchao99\t이거 끝내고 회의한대 옵저버에 대해\n07:30\t#overwatchleague_kr\tjjangjin2001\t리그 옵저버는 어때요?\n07:31\t#overwatchleague_kr\txinchao99\t걍 옵치리그는 메이저 리그라고 생각하면 됨\n07:31\t#overwatchleague_kr\tkknddnkk\t옵저버가 글쌈?\n07:31\t#overwatchleague_kr\trisciss\t옵저빙하는 애 트윗에 빡쳐서 글쓴거보고 더 빡침\n07:31\t#overwatchleague_kr\txinchao99\t글옵대회 하던 스탭들 데려와서 카메라가 느린거라고 함\n07:32\t#overwatchleague_kr\trisciss\t트윗에 레딧 옵저버 비판글보고 빡쳐서 글 썼었음\n08:15\t#overwatchleague_kr\ttorisa123\t야근데 보겸 옵치방송 접었다는데 인겜에서도 방송에서도 보이루드립 왤케 많냐\n18:42\t#overwatchleague_kr\ttpqms862\tㅎㅇ옵크리트형님들\n18:44\t#overwatchleague_kr\tdjrldu1020\t오늘 플옵까지 함?\n18:50\t#overwatchleague_kr\tnihility2682\t옵치리그 생각보다 재밌따\n18:51\t#overwatchleague_kr\tikr00082\t서울은 5위확정으로 시즌2에 나옵니다\n18:53\t#overwatchleague_kr\t4jochamchie\t오늘은 두 해설진 다 나옵니다\n18:54\t#overwatchleague_kr\tdjrldu1020\t블리자드놈 플옵은 다음날로 미뤄줄것이지\n18:56\t#overwatchleague_kr\tsupa1010\t옵드컵 볼때 기분난다\n19:01\t#overwatchleague_kr\tcappu04\t류제홍은 옵치 안나왔으면 배그프로각인데\n19:01\t#overwatchleague_kr\tgktrkans3\t옵갤에서온 게이들대답해라\n19:02\t#overwatchleague_kr\tqpqp79\t이게무슨 옵치방송이냐 싹뚝이방송이냐 어그로 개지리네\n19:14\t#overwatchleague_kr\t1gkgk2\t2스테이지 때는 옵저버도 좀 정신차렸으면 좋겟다\n19:14\t#overwatchleague_kr\tcmj01326\t와 옵치리그 많이보넹\n19:15\t#overwatchleague_kr\thks9933\t옵저버 열일하네\n19:16\t#overwatchleague_kr\tpcrhkdgh\t옵저버 진짜\n19:16\t#overwatchleague_kr\thks9933\t와 옵저버 웬일이냐\n19:16\t#overwatchleague_kr\tjangwon1\t옵저버 ㄷ\n19:16\t#overwatchleague_kr\tnrk7100\t옵져버\n19:16\t#overwatchleague_kr\tghv440vs\t오늘 옵저버 왜 잘잡냐\n19:16\t#overwatchleague_kr\tcatnabi777\t옵저버 조았다 ㅇㅈ\n19:17\t#overwatchleague_kr\tduckdwns1999\t옵저버 오늘 괜찮네\n19:18\t#overwatchleague_kr\tbbn1128\t옵저버 컹스한건 여전하네\n19:19\t#overwatchleague_kr\tjng1134\t깔거라곤 옵저버뿐\n19:19\t#overwatchleague_kr\tpcrhkdgh\t옵저버 진짜 하\n19:19\t#overwatchleague_kr\twrongholeplz\t옵져버 ㅅㅂ\n19:21\t#overwatchleague_kr\twrongholeplz\t아 옵져버 진짜\n19:28\t#overwatchleague_kr\tlazyandjoy\t아 옵저버\n19:28\t#overwatchleague_kr\terrorpodo\t옵저버 많이 늘었다\n19:31\t#overwatchleague_kr\tzxc01478\t근데 옵저버 좀 나아진거같은데\n19:31\t#overwatchleague_kr\torosung\t옵신 클라스\n19:34\t#overwatchleague_kr\tzz8800\t원래 디바는 킬뎃 4점대 이상 나와야한다 옵알못들아 ^^\n19:34\t#overwatchleague_kr\tdlskzaq\t옵치리그에서 공식적으로 서브힐 순위 매겼는데 12명중에 류제홍 8등 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n19:34\t#overwatchleague_kr\thyunnyim\t서울경기보다가 이거보니까 진짜 옵치게임같다\n19:36\t#overwatchleague_kr\tcho4514\t겜은 배그만 하고 보는건 옵창\n19:36\t#overwatchleague_kr\tcho4514\t그래 나 옵창이다\n19:36\t#overwatchleague_kr\t2002duck\t나도 옵창임\n19:36\t#overwatchleague_kr\t2002duck\t이 시간에 이거보는 사람들이 ㄹㅇ 옵창아니냐\n19:36\t#overwatchleague_kr\tkjcho115\t보스턴 우승 확정이다 ㅡㅡ 옵알못들아\n19:41\t#overwatchleague_kr\tzergqueentycoon\t옵치리그도 배팅있냐? 주작드립하게\n19:44\t#overwatchleague_kr\talwaysdeadkenny\t옵져버 버드링만 잡아주죠\n19:45\t#overwatchleague_kr\tfloraison_\t타이어 옵저버 잡아줘라\n19:51\t#overwatchleague_kr\tsunlee0114\t옵저버 갑자기 일잘하네 근데 ㄷㄷ\n19:51\t#overwatchleague_kr\tzxc01478\t오늘 옵저버 좋아\n19:51\t#overwatchleague_kr\tackda\t오늘 옵저버 ㅇㅈ\n19:51\t#overwatchleague_kr\thome1407\t오늘 옵저버 각성했냐? 옵저버 잘하네\n19:51\t#overwatchleague_kr\tsunlee0114\t오늘 옵저버 일잘하네 ㄹㅇ\n19:57\t#overwatchleague_kr\tblongreen\t옵저버 진짜 할말이 없네.. 아니 타이어 썼는데 거점을 보여줘\n19:57\t#overwatchleague_kr\tchjmd\t옵저버 개노답이네\n19:57\t#overwatchleague_kr\tunifee\t옵저버 안잡고 뭐하냐\n19:57\t#overwatchleague_kr\tgusdnr04\t옵저버 자냐\n19:57\t#overwatchleague_kr\tgusdnr04\t옵저버 진짜 발암이네\n19:58\t#overwatchleague_kr\tgoora05\t옵저버는 킬을 잡아주는게 아니라 스토리를 보여주는거야\n19:59\t#overwatchleague_kr\tunifee\t옵저버만 잘하면 훨씬 수준 높아보일듯\n20:11\t#overwatchleague_kr\tbabo197\t옵치 알람시계\n20:11\t#overwatchleague_kr\tultimatekyosei\t옵치리그 알람시계 ㄷㄷㄷㄷ\n20:11\t#overwatchleague_kr\thjj0805\t이정도면 옵치리그보라고 지진이 알람해준거네\n20:11\t#overwatchleague_kr\tdoro124\t사실 신이 옵치좀 보라고 지진일으킴\n20:12\t#overwatchleague_kr\thehehehe5555\t옵치 리그 돈많이 써서 알람 확실한거보소 ㄷㄷ\n20:12\t#overwatchleague_kr\tasbs4346\t옵치리그방에서 종북드립 그만쳐라\n20:14\t#overwatchleague_kr\thjj0805\tㄴㄴ 옵치알람시계임\n20:14\t#overwatchleague_kr\tapricottoyou\t옵치하는 한-남중에 일-베충 존나마나ㅠㅠ\n20:14\t#overwatchleague_kr\tpollux2709\tㅈ 잡고 옵치경기나 봐\n20:15\t#overwatchleague_kr\thjj0805\t자연도 옵치리그보라고 지진으로 사람 깨우네 ㄷ\n20:15\t#overwatchleague_kr\tjng6812\t옵치 스웨인 ㅌㅋㅋㅋㅋㅋㅋㅋ\n20:15\t#overwatchleague_kr\tksj70857085\t옵치이야기나 하자 이번에 스웨인 리메이크된다던데\n20:17\t#overwatchleague_kr\tdandy3725\t옵저버는 우리나라 사람으로 교체 하자\n20:17\t#overwatchleague_kr\tdandy3725\t옵저버 보소\n20:18\t#overwatchleague_kr\twndus9704\t옵저벙여윸ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n20:18\t#overwatchleague_kr\tgoora05\t옵저버 여유있지 파인만 잡을텐데\n20:18\t#overwatchleague_kr\tsjweye123\t파인만 ㅈㄴ잡아주네 ㅋㅋㅋ옵저버들 일 안함?\n20:18\t#overwatchleague_kr\t1gkgk2\t스테이지2에는 제발 옵저버도 정신차리길.....\n20:19\t#overwatchleague_kr\tehdud28480\t근데 옵저버가 파인에서 안바뀐다\n20:20\t#overwatchleague_kr\tvavamva_xd\t옵알못들 존오지네 ㅋㅋ\n20:22\t#overwatchleague_kr\tnaro0o0o0\t옵저버 ㅋㅋㅋㅋ\n20:25\t#overwatchleague_kr\taeineeh\t마이너스 안나옵니까\n20:26\t#overwatchleague_kr\tjo2501jo2501\t옵저버 위도우만 보여주네 제스처 좀 보여주지\n20:29\t#overwatchleague_kr\tleobumi2\t왜 지금 옵치함?\n20:35\t#overwatchleague_kr\tdandy3725\t옵저버 피망 먹고싶냐\n20:37\t#overwatchleague_kr\tjinwoo3121\t이거 보니까 옵치하고싶은데\n20:39\t#overwatchleague_kr\tincoercible\t옵치랑 트위치 연결하면리그토큰줘요?\n20:46\t#overwatchleague_kr\tjunsooim1\t옵저버ㅋㅋㅋㅋㅋ\n20:46\t#overwatchleague_kr\tqkfkafldhs\t옵저버 바뀜? 오늘은 꿀잼좀 보여주는거 같음 ㅋㅋ\n20:46\t#overwatchleague_kr\tcutegoldfish\t옵저버ㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n20:47\t#overwatchleague_kr\tinsanity7260\t옵저버샛기 뭐가 중헌질 몰르네\n20:47\t#overwatchleague_kr\ttodotdo\t그래도 옵저버 좀나아짐\n20:48\t#overwatchleague_kr\tdbsckddud2\t옵저버 또 똥싸죠?\n20:48\t#overwatchleague_kr\trkakenf3\t옵저버 자냐\n20:49\t#overwatchleague_kr\trkakenf3\t옵저버 꼰대 적폐들 싹다 잘라라\n20:49\t#overwatchleague_kr\treplay49\t옵저버\n20:49\t#overwatchleague_kr\tmsg6462\t옵저버 좀 얼타지마 ㅋㅋㅋㅋㅋㅌ\n20:50\t#overwatchleague_kr\tkgw6790\t옵저버 진짜 개꾸리다\n20:50\t#overwatchleague_kr\tflam_bi\t옵저버 ㅅㅂ\n20:50\t#overwatchleague_kr\tunifee\t옵저버 병...\n20:50\t#overwatchleague_kr\tziro1398\t옵저버 제발ㅋㅋㅋㅋㅋㅋㅋ\n20:52\t#overwatchleague_kr\tbear087\t옵저버진짜\n20:54\t#overwatchleague_kr\telflucia10\t옵저버 아 발암\n20:57\t#overwatchleague_kr\tfhskfeh11\t야 왠일로 옵저버가 저걸 잡네\n21:04\t#overwatchleague_kr\tanywordfestival\t옵저버 ㅅㅂ..\n21:04\t#overwatchleague_kr\tjo2501jo2501\t아 옵저버 도는 트레만 보여주네\n21:04\t#overwatchleague_kr\tblackdragon9625\t귀신같이 옵저버 안잡아주네\n21:05\t#overwatchleague_kr\tahho1\tㄹㅇ옵저버 왜캐 한 사람만 잡음\n21:06\t#overwatchleague_kr\tdragonblow83\t옵저버 짱난다 진짜\n21:07\t#overwatchleague_kr\tyaljjal_\t일단 옵저버ㅠ\n21:08\t#overwatchleague_kr\twhite170305\t옵치리그도 토토 있냐?\n21:29\t#overwatchleague_kr\tkkh1627\t옵저버좀 데려왔으면좋겠다\n21:43\t#overwatchleague_kr\tkkh1627\t리그 제발 옵저버만 좀 바꿔보자\n21:48\t#overwatchleague_kr\ttorsilion\t옵저버 바꾸는걸 보여주고 앉았네\n21:55\t#overwatchleague_kr\tahho1\t옵드컵때도 제이크 파라 잘했는데 뭔소리지\n21:59\t#overwatchleague_kr\tlee0so\t옵저버 뭐하냐 대체\n21:59\t#overwatchleague_kr\twrongholeplz\t아니 옵져버 머하냐\n21:59\t#overwatchleague_kr\thunsuhunsu\t옵저머\n22:00\t#overwatchleague_kr\tjo2501jo2501\t옵저버 브론즈인듯\n22:00\t#overwatchleague_kr\tjbw2281\t옵저버가 ㄴㅈ만드네\n22:00\t#overwatchleague_kr\telflucia10\t아그냥 옵저버야 제이크만 보여줘 정크할땐\n22:00\t#overwatchleague_kr\tkaraburi\t옵저버 클라스;\n22:00\t#overwatchleague_kr\tsineim2\t옵저버형\n22:00\t#overwatchleague_kr\tcramjw0\t리그 옵저버가 재미를 반 이상은 반감시킨다\n22:00\t#overwatchleague_kr\tcantaloupe90\t옵저버 하드캐리\n22:00\t#overwatchleague_kr\tetna_mirr\t옵저버 하드캐리\n22:00\t#overwatchleague_kr\tsebajuno\t아 옵저버\n22:00\t#overwatchleague_kr\tspwin\t옵저버 LUL\n22:00\t#overwatchleague_kr\telcroich\t진짜 옵저버....\n22:00\t#overwatchleague_kr\tbongddu\t옵저버\n22:00\t#overwatchleague_kr\tgusdnr04\t옵저버가 누가 궁을 쓰면 판단하지 말고 그냥 화면을 돌려\n22:00\t#overwatchleague_kr\tcatnabi777\t!옵저버\n22:00\t#overwatchleague_kr\tsgn100810\t리그 옵저버 개후진 걸로 유명함\n22:00\t#overwatchleague_kr\tpsagi\t옵저버 ㅋㅋㅋ\n22:01\t#overwatchleague_kr\tgtwind17\t두박자 늦은 옵저빙\n22:04\t#overwatchleague_kr\tjinayoung94\t오른쪽냄저는 딱봐도 옵알못인데 막 지르는게 보이네;;\n22:12\t#overwatchleague_kr\tasas6987\tㅄ같은 옵저버\n22:22\t#overwatchleague_kr\ttoydokill\t역시 옵치는 탱커 실력이.......\n22:22\t#overwatchleague_kr\txhfptmtm\t옵저버 모처럼 일했다\n22:25\t#overwatchleague_kr\tdlskzaq\t이야 올해 옵드컵은 서울선수 한명도 안뽑히겠는데???ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n22:33\t#overwatchleague_kr\ttotoro1228\t올해는 옵드컵 위원회가 누가될까나?\n22:34\t#overwatchleague_kr\tcwb1969\t옵드컵은 국가대항전이니까 하겠죠\n22:34\t#overwatchleague_kr\t030v_kittycat\t옵드컵 메인탱뽑기도 너무 쟁쟁함 제스쳐 감수 페이트\n22:34\t#overwatchleague_kr\tkimmin316\t옵치리그때문에 옵드컵안할거같은느낌\n22:34\t#overwatchleague_kr\t1gkgk2\t옵드컵은 국가대항전이니 하지않을까?\n22:34\t#overwatchleague_kr\tvict1040000\t옵드컵하지않을까\n22:34\t#overwatchleague_kr\t030v_kittycat\t옵드컵한다하면 메인탱뽑기도 진짜 힘들듯\n22:34\t#overwatchleague_kr\tgukbbongee\t옵드컵이 무슨 정규리그냐 이벤트전인데\n22:35\t#overwatchleague_kr\tcjswoshfdl2\t옵드컵은 블리즈컨할때 같이함\n22:35\t#overwatchleague_kr\taksmfakch\t옵드컵이 11월 달이고 옵치리그가 6월달에 끝나니까 당연히 하지\n22:35\t#overwatchleague_kr\tclampdy\tㅋㅋ 옵드컵 얘기한 사람 개까이네\n22:35\t#overwatchleague_kr\tchajaeh8\t옵드컵까지 1년남음 그만 생각하셈\n22:36\t#overwatchleague_kr\tjustme_0\t옵ㄱ드컵 플레타 플라워 둘이 나가면 최강아니냐???\n22:36\t#overwatchleague_kr\tabc62341\t플레타가 뭔 옵드컵이야 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ 리베로한테 서열정리당한거 벌써 잊었나...\n22:36\t#overwatchleague_kr\taksmfakch\t옵드컵 할때 리그팀 안뽑았으면 좋겠음\n22:36\t#overwatchleague_kr\tgukbbongee\t옵드컵은 딜러:플레타+프로핏 힐러:클로져+쪼낙이지 대체제가 없는데\n22:38\t#overwatchleague_kr\tanbj1984\t옵뎃 무엇\n22:40\t#overwatchleague_kr\tmakuil3\t니들이 무슨 옵드컵위원회임 닥치고 경기나보셈\n22:51\t#overwatchleague_kr\tnaz1bo\t켈렉스 옵빠 존잘;;\n22:53\t#overwatchleague_kr\tslwpanda\tㅇㅇ 근데 보스턴 3ㄷ2오 이기면 LAV가 플옵행\n22:54\t#overwatchleague_kr\t3942368\t제이크는 솔져도 장난 아니였는데 옵드컵때.\n22:54\t#overwatchleague_kr\tshr1523\t옵치판 일베판인건 알았ㅈㅣ만\n22:54\t#overwatchleague_kr\tjini5542\t3위까지 직행이고 4위는 플옵임?\n22:57\t#overwatchleague_kr\tssakdookmom\t옵저버 므ㅝ하냐진짜\n22:57\t#overwatchleague_kr\tssakdookmom\t옵저버 구데기네진짜\n23:08\t#overwatchleague_kr\tclampdy\t제이크 첨에 솔저로 옵드컵에서 유명해진게 시작아녀?\n23:12\t#overwatchleague_kr\tbs1107\t옵저버 ㅅㅂ\n23:12\t#overwatchleague_kr\txhfptmtm\t옵저버는 왜 이런걸 그냥 넘기냐\n23:12\t#overwatchleague_kr\tgtwind17\t옵저버 진짜\n23:12\t#overwatchleague_kr\tgtwind17\t옵저버 진짜 ㅂㅅ이네\n23:17\t#overwatchleague_kr\tgamechung\t옵치리그 개재밋네\n23:17\t#overwatchleague_kr\tgamechung\t옵치리그 존나재밋네\n23:25\t#overwatchleague_kr\tttakbam\t옵저빙 실화냐...옵저버 진짜..\n23:29\t#overwatchleague_kr\tunifee\t옵저버 ㅆㄹㄱ\n23:29\t#overwatchleague_kr\tljh02220\t옵저버\n23:31\t#overwatchleague_kr\tljh02220\t근데 옵저버들 링저 혼자 3명 짜르고 있었는데 안 보여주고 뭐함???\n23:32\t#overwatchleague_kr\tunifee\t옵저버 진짜..\n23:32\t#overwatchleague_kr\tkwan116\t옵알못들 어리둥절 이유없데;;ㅋㅋ\n23:39\t#overwatchleague_kr\tsunnerer\t밥먹고옵시도\n23:40\t#overwatchleague_kr\t27pkw\t한국인들 그렇게 옵치잘한다 그런소리들하더만 정작 한국인들있는팀들은 타이틀매치 가지도못했네\n23:40\t#overwatchleague_kr\twhite170305\t한국인리그되면 옵치리그 망한다 휴스턴이 그걸 막은거임\n23:40\t#overwatchleague_kr\tkiby119\t리그는 배그보다 옵치가 꿀잼이넹 ㅋㅋ\n23:41\t#overwatchleague_kr\tyookgogi\t님들 근데 옵치리그 결국 김치리그 아님???\n23:42\t#overwatchleague_kr\tskatjs848\t옵치하러 가즈아\n23:43\t#overwatchleague_kr\t27pkw\t한국이 그렇게 옵치잘한다 잘한다해놓고 리그보니깐 한국인팀 아무도 123등안에 못듬 ㅋㅋ\n23:43\t#overwatchleague_kr\toverwatchbts\t옵치리그의 성공을 위해서 블리자드는 휴스턴이 우승하길 바랄듯 쳇\n23:53\t#overwatchleague_kr\t27pkw\t아니근데 한국인들 옵치잘한다면서 한팀도 상위권에없네\n23:58\t#overwatchleague_kr\tbakyouhun\t장지수님 옵치 닉넴이 게구리입니다\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518320312719_-252247809",
+      "id": "20180211-123832_1966871393",
+      "dateCreated": "Feb 11, 2018 12:38:32 PM",
+      "dateStarted": "Feb 12, 2018 3:47:53 PM",
+      "dateFinished": "Feb 12, 2018 3:47:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect time, count(msg) from(\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where channel \u003d \u0027#overwatchleague_kr\u0027 order by time)\ngroup by time",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 3:56:31 PM",
+      "config": {
+        "colWidth": 6.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tcount(msg)\n00:00\t61\n00:01\t29\n00:02\t29\n00:03\t31\n00:04\t35\n00:05\t34\n00:06\t23\n00:07\t17\n00:08\t21\n00:09\t22\n00:10\t21\n00:11\t12\n00:12\t23\n00:13\t18\n00:14\t17\n00:15\t44\n00:16\t18\n00:17\t20\n00:18\t15\n00:19\t34\n00:20\t19\n00:21\t15\n00:22\t31\n00:23\t41\n00:24\t28\n00:25\t18\n00:26\t73\n00:27\t34\n00:28\t17\n00:29\t29\n00:30\t16\n00:31\t22\n00:32\t22\n00:33\t24\n00:34\t12\n00:35\t81\n00:36\t40\n00:37\t26\n00:38\t22\n00:39\t28\n00:40\t36\n00:41\t20\n00:42\t24\n00:43\t39\n00:44\t21\n00:45\t69\n00:46\t139\n00:47\t35\n00:48\t22\n00:49\t26\n00:50\t22\n00:51\t36\n00:52\t31\n00:53\t23\n00:54\t30\n00:55\t35\n00:56\t38\n00:57\t41\n00:58\t33\n00:59\t38\n01:00\t34\n01:01\t47\n01:02\t40\n01:03\t25\n01:04\t33\n01:05\t37\n01:06\t40\n01:07\t48\n01:08\t72\n01:09\t24\n01:10\t44\n01:11\t20\n01:12\t30\n01:13\t36\n01:14\t80\n01:15\t41\n01:16\t42\n01:17\t44\n01:18\t59\n01:19\t52\n01:20\t34\n01:21\t69\n01:22\t28\n01:23\t14\n01:24\t34\n01:25\t23\n01:26\t67\n01:27\t34\n01:28\t36\n01:29\t29\n01:30\t42\n01:31\t35\n01:32\t57\n01:33\t156\n01:34\t140\n01:35\t77\n01:36\t59\n01:37\t108\n01:38\t86\n01:39\t47\n01:40\t55\n01:41\t46\n01:42\t62\n01:43\t57\n01:44\t70\n01:45\t56\n01:46\t153\n01:47\t162\n01:48\t110\n01:49\t110\n01:50\t46\n01:51\t109\n01:52\t71\n01:53\t67\n01:54\t126\n01:55\t163\n01:56\t94\n01:57\t92\n01:58\t49\n01:59\t59\n02:00\t64\n02:01\t131\n02:02\t98\n02:03\t72\n02:04\t143\n02:05\t34\n02:06\t21\n02:07\t48\n02:08\t22\n02:09\t23\n02:10\t74\n02:11\t76\n02:12\t61\n02:13\t112\n02:14\t44\n02:15\t25\n02:16\t30\n02:17\t25\n02:18\t106\n02:19\t68\n02:20\t21\n02:21\t51\n02:22\t54\n02:23\t71\n02:24\t101\n02:25\t80\n02:26\t63\n02:27\t138\n02:28\t90\n02:29\t73\n02:30\t126\n02:31\t107\n02:32\t181\n02:33\t170\n02:34\t146\n02:35\t177\n02:36\t202\n02:37\t195\n02:38\t92\n02:39\t54\n02:40\t100\n02:41\t170\n02:42\t60\n02:43\t78\n02:44\t110\n02:45\t59\n02:46\t33\n02:47\t95\n02:48\t68\n02:49\t76\n02:50\t90\n02:51\t58\n02:52\t69\n02:53\t175\n02:54\t236\n02:55\t141\n02:56\t123\n02:57\t118\n02:58\t43\n02:59\t73\n03:00\t59\n03:01\t93\n03:02\t62\n03:03\t46\n03:04\t95\n03:05\t86\n03:06\t72\n03:07\t38\n03:08\t51\n03:09\t50\n03:10\t82\n03:11\t38\n03:12\t50\n03:13\t43\n03:14\t61\n03:15\t75\n03:16\t66\n03:17\t139\n03:18\t83\n03:19\t232\n03:20\t117\n03:21\t149\n03:22\t75\n03:23\t59\n03:24\t132\n03:25\t95\n03:26\t54\n03:27\t184\n03:28\t128\n03:29\t171\n03:30\t83\n03:31\t180\n03:32\t130\n03:33\t77\n03:34\t98\n03:35\t311\n03:36\t155\n03:37\t240\n03:38\t131\n03:39\t122\n03:40\t74\n03:41\t67\n03:42\t86\n03:43\t107\n03:44\t37\n03:45\t57\n03:46\t56\n03:47\t44\n03:48\t40\n03:49\t56\n03:50\t49\n03:51\t39\n03:52\t63\n03:53\t58\n03:54\t61\n03:55\t118\n03:56\t51\n03:57\t98\n03:58\t96\n03:59\t73\n04:00\t132\n04:01\t151\n04:02\t166\n04:03\t86\n04:04\t81\n04:05\t82\n04:06\t55\n04:07\t96\n04:08\t326\n04:09\t61\n04:10\t38\n04:11\t48\n04:12\t76\n04:13\t113\n04:14\t94\n04:15\t88\n04:16\t100\n04:17\t93\n04:18\t141\n04:19\t88\n04:20\t277\n04:21\t121\n04:22\t152\n04:23\t279\n04:24\t197\n04:25\t164\n04:26\t150\n04:27\t165\n04:28\t157\n04:29\t139\n04:30\t241\n04:31\t110\n04:32\t64\n04:33\t56\n04:34\t67\n04:35\t105\n04:36\t68\n04:37\t55\n04:38\t66\n04:39\t134\n04:40\t108\n04:41\t43\n04:42\t76\n04:43\t78\n04:44\t47\n04:45\t65\n04:46\t101\n04:47\t193\n04:48\t242\n04:49\t222\n04:50\t167\n04:51\t113\n04:52\t153\n04:53\t240\n04:54\t150\n04:55\t205\n04:56\t130\n04:57\t77\n04:58\t48\n04:59\t51\n05:00\t80\n05:01\t65\n05:02\t57\n05:03\t58\n05:04\t60\n05:05\t51\n05:06\t56\n05:07\t83\n05:08\t87\n05:09\t70\n05:29\t37\n05:30\t86\n05:31\t45\n05:32\t86\n05:33\t112\n05:34\t114\n05:35\t138\n05:36\t64\n05:37\t53\n05:38\t123\n05:39\t64\n05:40\t58\n05:41\t89\n05:42\t99\n05:43\t151\n05:44\t209\n05:45\t135\n05:46\t129\n05:47\t95\n05:48\t65\n05:49\t62\n05:50\t76\n05:51\t85\n05:52\t74\n05:53\t36\n05:54\t56\n05:55\t62\n05:56\t90\n05:57\t70\n05:58\t124\n05:59\t57\n06:00\t128\n06:01\t206\n06:02\t146\n06:03\t131\n06:04\t108\n06:05\t127\n06:06\t103\n06:07\t112\n06:08\t136\n06:09\t163\n06:10\t254\n06:11\t299\n06:12\t312\n06:13\t172\n06:14\t68\n06:15\t88\n06:16\t100\n06:17\t117\n06:18\t105\n06:19\t155\n06:20\t251\n06:21\t74\n06:22\t144\n06:23\t108\n06:24\t43\n06:25\t25\n06:26\t26\n06:27\t27\n06:28\t26\n06:29\t28\n06:30\t34\n06:31\t24\n06:32\t28\n06:33\t14\n06:34\t9\n06:35\t15\n06:36\t12\n06:37\t17\n06:38\t17\n06:39\t14\n06:40\t18\n06:41\t19\n06:42\t22\n06:43\t17\n06:44\t8\n06:45\t8\n06:46\t12\n06:47\t23\n06:48\t8\n06:49\t11\n06:50\t4\n06:51\t11\n06:52\t17\n06:53\t11\n06:54\t8\n06:55\t8\n06:56\t10\n06:57\t8\n06:58\t7\n06:59\t4\n07:00\t1\n07:01\t4\n07:02\t11\n07:03\t16\n07:04\t10\n07:05\t12\n07:06\t12\n07:07\t2\n07:08\t5\n07:09\t10\n07:10\t18\n07:11\t13\n07:12\t17\n07:13\t7\n07:14\t12\n07:15\t11\n07:16\t16\n07:17\t13\n07:18\t10\n07:19\t14\n07:20\t10\n07:21\t5\n07:22\t8\n07:23\t13\n07:24\t15\n07:25\t3\n07:26\t16\n07:27\t8\n07:28\t7\n07:29\t7\n07:30\t11\n07:31\t10\n07:32\t5\n07:33\t18\n07:34\t4\n07:35\t7\n07:36\t3\n07:37\t3\n07:38\t1\n07:39\t2\n07:40\t2\n07:42\t7\n07:46\t2\n07:47\t6\n07:48\t3\n07:49\t2\n07:51\t2\n07:52\t2\n07:53\t3\n07:54\t1\n07:55\t8\n07:56\t12\n07:57\t8\n07:58\t14\n07:59\t6\n08:00\t8\n08:01\t8\n08:02\t3\n08:03\t5\n08:04\t1\n08:05\t4\n08:06\t11\n08:07\t10\n08:08\t4\n08:09\t11\n08:10\t8\n08:11\t4\n08:14\t8\n08:15\t8\n08:16\t8\n08:17\t9\n08:18\t18\n08:19\t8\n08:20\t2\n08:21\t8\n08:22\t10\n08:23\t10\n08:24\t10\n08:25\t13\n08:26\t9\n08:27\t13\n08:28\t13\n08:29\t12\n08:30\t12\n08:31\t6\n08:32\t8\n08:33\t6\n08:34\t9\n08:35\t9\n08:36\t13\n08:37\t19\n08:38\t5\n18:02\t1\n18:04\t2\n18:08\t1\n18:10\t2\n18:13\t1\n18:26\t2\n18:27\t1\n18:28\t1\n18:31\t1\n18:34\t2\n18:35\t1\n18:37\t1\n18:38\t32\n18:39\t18\n18:40\t23\n18:41\t23\n18:42\t15\n18:43\t23\n18:44\t35\n18:45\t30\n18:46\t27\n18:47\t30\n18:48\t36\n18:49\t34\n18:50\t44\n18:51\t47\n18:52\t56\n18:53\t44\n18:54\t50\n18:55\t54\n18:56\t45\n18:57\t66\n18:58\t92\n18:59\t88\n19:00\t120\n19:01\t83\n19:02\t80\n19:03\t88\n19:04\t89\n19:05\t105\n19:06\t165\n19:07\t112\n19:08\t152\n19:09\t148\n19:10\t116\n19:11\t112\n19:12\t111\n19:13\t62\n19:14\t66\n19:15\t35\n19:16\t94\n19:17\t78\n19:18\t75\n19:19\t52\n19:20\t62\n19:21\t52\n19:22\t69\n19:23\t61\n19:24\t61\n19:25\t136\n19:26\t156\n19:27\t81\n19:28\t108\n19:29\t63\n19:30\t169\n19:31\t130\n19:32\t103\n19:33\t108\n19:34\t94\n19:35\t81\n19:36\t67\n19:37\t113\n19:38\t111\n19:39\t49\n19:40\t105\n19:41\t142\n19:42\t124\n19:43\t86\n19:44\t63\n19:45\t86\n19:46\t61\n19:47\t100\n19:48\t47\n19:49\t42\n19:50\t83\n19:51\t78\n19:52\t76\n19:53\t73\n19:54\t27\n19:55\t76\n19:56\t48\n19:57\t169\n19:58\t47\n19:59\t42\n20:00\t40\n20:01\t37\n20:02\t53\n20:03\t88\n20:04\t137\n20:05\t118\n20:06\t75\n20:07\t47\n20:08\t63\n20:09\t61\n20:10\t163\n20:11\t155\n20:12\t88\n20:13\t128\n20:14\t131\n20:15\t90\n20:16\t170\n20:17\t140\n20:18\t149\n20:19\t112\n20:20\t89\n20:21\t44\n20:22\t82\n20:23\t71\n20:24\t67\n20:25\t124\n20:26\t38\n20:27\t89\n20:28\t124\n20:29\t121\n20:30\t100\n20:31\t79\n20:32\t166\n20:33\t167\n20:34\t115\n20:35\t98\n20:36\t43\n20:37\t43\n20:38\t63\n20:39\t57\n20:40\t52\n20:41\t58\n20:42\t83\n20:43\t86\n20:44\t26\n20:45\t115\n20:46\t58\n20:47\t50\n20:48\t32\n20:49\t49\n20:50\t60\n20:51\t44\n20:52\t62\n20:53\t52\n20:54\t73\n20:55\t109\n20:56\t206\n20:57\t144\n20:58\t157\n20:59\t101\n21:00\t109\n21:01\t71\n21:02\t63\n21:03\t77\n21:04\t122\n21:05\t103\n21:06\t80\n21:07\t143\n21:08\t121\n21:09\t68\n21:10\t155\n21:11\t78\n21:12\t103\n21:13\t141\n21:14\t144\n21:15\t97\n21:16\t148\n21:17\t78\n21:18\t48\n21:19\t55\n21:20\t30\n21:21\t33\n21:22\t22\n21:23\t22\n21:24\t24\n21:25\t36\n21:26\t35\n21:27\t31\n21:28\t34\n21:29\t37\n21:30\t44\n21:31\t42\n21:32\t46\n21:33\t74\n21:34\t70\n21:35\t168\n21:36\t67\n21:37\t93\n21:38\t38\n21:39\t84\n21:40\t52\n21:41\t106\n21:42\t108\n21:43\t48\n21:44\t31\n21:45\t57\n21:46\t42\n21:47\t51\n21:48\t45\n21:49\t57\n21:50\t12\n21:51\t41\n21:52\t63\n21:53\t38\n21:54\t21\n21:55\t20\n21:56\t36\n21:57\t29\n21:58\t29\n21:59\t31\n22:00\t57\n22:01\t42\n22:02\t162\n22:03\t113\n22:04\t60\n22:05\t38\n22:06\t53\n22:07\t57\n22:08\t32\n22:09\t56\n22:10\t31\n22:11\t19\n22:12\t26\n22:13\t15\n22:14\t22\n22:15\t27\n22:16\t29\n22:17\t41\n22:18\t85\n22:19\t56\n22:20\t51\n22:21\t25\n22:22\t71\n22:23\t121\n22:24\t84\n22:25\t40\n22:26\t48\n22:27\t36\n22:28\t28\n22:29\t42\n22:30\t35\n22:31\t22\n22:32\t25\n22:33\t26\n22:34\t25\n22:35\t31\n22:36\t28\n22:37\t59\n22:38\t56\n22:39\t45\n22:40\t34\n22:41\t46\n22:42\t58\n22:43\t57\n22:44\t84\n22:45\t82\n22:46\t47\n22:47\t63\n22:48\t110\n22:49\t95\n22:50\t113\n22:51\t80\n22:52\t54\n22:53\t74\n22:54\t60\n22:55\t70\n22:56\t28\n22:57\t49\n22:58\t31\n22:59\t22\n23:00\t28\n23:01\t38\n23:02\t27\n23:03\t83\n23:04\t65\n23:05\t144\n23:06\t119\n23:07\t95\n23:08\t57\n23:09\t30\n23:10\t71\n23:11\t44\n23:12\t54\n23:13\t177\n23:14\t79\n23:15\t73\n23:16\t51\n23:17\t25\n23:18\t25\n23:19\t26\n23:20\t24\n23:21\t23\n23:22\t23\n23:23\t47\n23:24\t40\n23:25\t17\n23:26\t73\n23:27\t43\n23:28\t41\n23:29\t66\n23:30\t86\n23:31\t88\n23:32\t64\n23:33\t71\n23:34\t88\n23:35\t93\n23:36\t151\n23:37\t99\n23:38\t96\n23:39\t91\n23:40\t41\n23:41\t50\n23:42\t34\n23:43\t39\n23:44\t45\n23:45\t36\n23:46\t34\n23:47\t27\n23:48\t33\n23:49\t36\n23:50\t47\n23:51\t41\n23:52\t36\n23:53\t29\n23:54\t52\n23:55\t52\n23:56\t34\n23:57\t50\n23:58\t73\n23:59\t120\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518338404362_288328585",
+      "id": "20180211-174004_1906270464",
+      "dateCreated": "Feb 11, 2018 5:40:04 PM",
+      "dateStarted": "Feb 12, 2018 3:56:31 PM",
+      "dateFinished": "Feb 12, 2018 3:56:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect time, count(msg) from(\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where channel \u003d \u0027#overwatchleague\u0027 and lower(msg) like \u0027%lul%\u0027 order by time)\ngroup by time",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 2:54:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tcount(msg)\n00:00\t34\n00:01\t13\n00:02\t11\n00:03\t9\n00:04\t10\n00:05\t9\n00:06\t11\n00:07\t17\n00:08\t5\n00:09\t12\n00:10\t9\n00:11\t17\n00:12\t10\n00:13\t24\n00:14\t20\n00:15\t32\n00:16\t25\n00:17\t12\n00:18\t19\n00:19\t24\n00:20\t14\n00:21\t17\n00:22\t2\n00:23\t19\n00:24\t15\n00:25\t54\n00:26\t21\n00:27\t6\n00:28\t7\n00:29\t15\n00:30\t11\n00:31\t19\n00:32\t25\n00:33\t5\n00:34\t28\n00:35\t59\n00:36\t14\n00:37\t6\n00:38\t11\n00:39\t29\n00:40\t16\n00:41\t19\n00:42\t25\n00:43\t10\n00:44\t12\n00:45\t81\n00:46\t13\n00:47\t15\n00:48\t18\n00:49\t4\n00:50\t17\n00:51\t8\n00:52\t6\n00:54\t39\n00:55\t70\n00:56\t34\n00:57\t28\n00:58\t8\n00:59\t6\n01:00\t10\n01:01\t12\n01:02\t14\n01:03\t18\n01:04\t13\n01:05\t6\n01:06\t30\n01:07\t8\n01:08\t12\n01:09\t25\n01:10\t12\n01:11\t14\n01:12\t13\n01:13\t7\n01:14\t14\n01:15\t17\n01:16\t18\n01:17\t9\n01:18\t7\n01:19\t6\n01:20\t51\n01:21\t12\n01:22\t12\n01:23\t11\n01:24\t15\n01:25\t9\n01:26\t10\n01:27\t23\n01:28\t13\n01:29\t6\n01:30\t16\n01:31\t12\n01:32\t18\n01:33\t28\n01:34\t13\n01:35\t26\n01:36\t13\n01:37\t18\n01:38\t5\n01:39\t39\n01:40\t17\n01:41\t14\n01:42\t16\n01:43\t35\n01:44\t40\n01:45\t13\n01:46\t53\n01:47\t27\n01:48\t24\n01:49\t12\n01:50\t41\n01:51\t82\n01:52\t9\n01:53\t15\n01:54\t2\n01:55\t12\n01:56\t5\n01:57\t18\n01:58\t12\n01:59\t4\n02:00\t83\n02:01\t13\n02:02\t30\n02:03\t15\n02:04\t12\n02:05\t26\n02:06\t24\n02:07\t23\n02:08\t10\n02:09\t24\n02:10\t28\n02:11\t83\n02:12\t106\n02:13\t38\n02:14\t19\n02:15\t20\n02:16\t27\n02:17\t16\n02:18\t28\n02:19\t10\n02:20\t49\n02:21\t53\n02:22\t52\n02:23\t30\n02:24\t22\n02:25\t109\n02:26\t78\n02:27\t66\n02:28\t51\n02:29\t118\n02:30\t30\n02:31\t52\n02:32\t42\n02:33\t85\n02:34\t30\n02:35\t37\n02:36\t37\n02:37\t17\n02:38\t23\n02:39\t48\n02:40\t74\n02:41\t66\n02:42\t24\n02:43\t47\n02:44\t52\n02:45\t57\n02:46\t39\n02:47\t65\n02:48\t26\n02:49\t29\n02:50\t44\n02:51\t26\n02:52\t19\n02:53\t30\n02:54\t29\n02:55\t29\n02:56\t29\n02:57\t29\n02:58\t23\n02:59\t15\n03:00\t18\n03:01\t17\n03:02\t21\n03:03\t28\n03:04\t45\n03:05\t36\n03:06\t37\n03:07\t18\n03:08\t45\n03:09\t27\n03:10\t26\n03:11\t50\n03:12\t60\n03:13\t84\n03:14\t31\n03:15\t52\n03:16\t17\n03:17\t42\n03:18\t38\n03:19\t22\n03:20\t63\n03:21\t67\n03:22\t79\n03:23\t113\n03:24\t53\n03:25\t58\n03:26\t82\n03:27\t106\n03:28\t112\n03:29\t43\n03:30\t51\n03:31\t66\n03:32\t41\n03:33\t124\n03:34\t58\n03:35\t36\n03:36\t32\n03:37\t35\n03:38\t50\n03:39\t46\n03:40\t48\n03:41\t74\n03:42\t35\n03:43\t69\n03:44\t58\n03:45\t43\n03:46\t109\n03:47\t64\n03:48\t27\n03:49\t23\n03:50\t22\n03:51\t35\n03:52\t15\n03:53\t6\n03:54\t25\n03:55\t15\n03:56\t6\n03:57\t10\n03:58\t26\n03:59\t19\n04:00\t26\n04:01\t20\n04:02\t11\n04:03\t10\n04:04\t9\n04:05\t8\n04:06\t12\n04:07\t8\n04:08\t3\n04:09\t28\n04:10\t6\n04:11\t9\n04:12\t11\n04:13\t40\n04:14\t57\n04:15\t36\n04:16\t24\n04:17\t24\n04:18\t22\n04:19\t16\n04:20\t32\n04:21\t46\n04:22\t34\n04:23\t64\n04:24\t22\n04:25\t57\n04:26\t9\n04:27\t19\n04:28\t44\n04:29\t10\n04:30\t10\n04:31\t3\n04:32\t16\n04:33\t12\n04:34\t10\n04:35\t15\n04:36\t36\n04:37\t11\n04:38\t19\n04:39\t14\n04:40\t6\n04:41\t21\n04:42\t10\n04:43\t13\n04:44\t22\n04:45\t11\n04:46\t37\n04:47\t8\n04:48\t9\n04:49\t36\n04:50\t28\n04:51\t37\n04:52\t78\n04:53\t6\n04:54\t23\n04:55\t20\n04:56\t6\n04:57\t11\n04:58\t14\n04:59\t10\n05:00\t18\n05:01\t8\n05:02\t10\n05:03\t11\n05:04\t13\n05:05\t14\n05:06\t19\n05:07\t37\n05:08\t23\n05:09\t4\n05:29\t2\n05:30\t5\n05:31\t6\n05:32\t5\n05:33\t3\n05:34\t3\n05:35\t8\n05:36\t10\n05:37\t8\n05:38\t8\n05:39\t6\n05:40\t10\n05:41\t17\n05:42\t2\n05:43\t5\n05:44\t10\n05:45\t4\n05:46\t16\n05:47\t26\n05:48\t11\n05:49\t3\n05:50\t29\n05:51\t13\n05:52\t11\n05:53\t7\n05:54\t15\n05:55\t2\n05:56\t6\n05:57\t1\n05:58\t10\n05:59\t14\n06:00\t5\n06:01\t16\n06:02\t6\n06:03\t13\n06:04\t6\n06:05\t21\n06:06\t11\n06:07\t22\n06:08\t15\n06:09\t11\n06:10\t9\n06:11\t24\n06:12\t23\n06:13\t27\n06:14\t17\n06:15\t8\n06:16\t11\n06:17\t9\n06:18\t10\n06:19\t14\n06:20\t15\n06:21\t15\n06:22\t3\n06:29\t3\n06:30\t6\n06:31\t2\n06:37\t1\n06:38\t1\n06:42\t1\n06:43\t2\n06:53\t1\n07:58\t1\n08:04\t1\n08:05\t1\n08:08\t2\n08:14\t2\n08:15\t1\n08:16\t2\n08:18\t1\n08:19\t3\n08:20\t1\n08:23\t1\n08:25\t4\n08:26\t1\n08:27\t4\n08:28\t4\n08:30\t2\n08:31\t1\n08:32\t1\n08:34\t2\n08:37\t1\n17:51\t1\n18:03\t1\n18:08\t1\n18:31\t2\n18:33\t2\n18:34\t2\n18:35\t1\n18:37\t1\n18:38\t1\n18:40\t2\n18:41\t2\n18:42\t1\n18:44\t1\n18:45\t3\n18:46\t3\n18:47\t3\n18:48\t4\n18:49\t1\n18:50\t4\n18:51\t9\n18:52\t6\n18:53\t12\n18:54\t16\n18:55\t1\n18:56\t13\n18:57\t13\n18:58\t11\n18:59\t18\n19:00\t24\n19:01\t21\n19:02\t55\n19:03\t25\n19:04\t8\n19:05\t143\n19:06\t93\n19:07\t55\n19:08\t64\n19:09\t35\n19:10\t34\n19:11\t37\n19:12\t44\n19:13\t25\n19:14\t16\n19:15\t9\n19:16\t25\n19:17\t10\n19:18\t27\n19:19\t11\n19:20\t23\n19:21\t38\n19:22\t33\n19:23\t40\n19:24\t14\n19:25\t14\n19:26\t45\n19:27\t34\n19:28\t57\n19:29\t28\n19:30\t51\n19:31\t36\n19:32\t68\n19:33\t66\n19:34\t138\n19:35\t83\n19:36\t47\n19:37\t37\n19:38\t18\n19:39\t33\n19:40\t49\n19:41\t78\n19:42\t99\n19:43\t35\n19:44\t78\n19:45\t56\n19:46\t39\n19:47\t16\n19:48\t11\n19:49\t5\n19:50\t8\n19:51\t21\n19:52\t13\n19:53\t19\n19:54\t33\n19:55\t20\n19:56\t20\n19:57\t20\n19:58\t27\n19:59\t14\n20:00\t7\n20:01\t6\n20:02\t23\n20:03\t12\n20:04\t6\n20:05\t11\n20:06\t20\n20:07\t26\n20:08\t4\n20:09\t22\n20:10\t38\n20:11\t23\n20:12\t85\n20:13\t103\n20:14\t74\n20:15\t29\n20:16\t26\n20:17\t18\n20:18\t29\n20:19\t91\n20:20\t36\n20:21\t16\n20:22\t20\n20:23\t43\n20:24\t52\n20:25\t47\n20:26\t34\n20:27\t33\n20:28\t23\n20:29\t54\n20:30\t77\n20:31\t53\n20:32\t57\n20:33\t73\n20:34\t61\n20:35\t46\n20:36\t58\n20:37\t15\n20:38\t46\n20:39\t69\n20:40\t69\n20:41\t30\n20:42\t78\n20:43\t37\n20:44\t14\n20:45\t17\n20:46\t27\n20:47\t5\n20:48\t8\n20:49\t36\n20:50\t24\n20:51\t13\n20:52\t16\n20:53\t25\n20:54\t47\n20:55\t17\n20:56\t21\n20:57\t22\n20:58\t46\n20:59\t34\n21:00\t6\n21:01\t11\n21:02\t13\n21:03\t15\n21:04\t11\n21:05\t48\n21:06\t56\n21:07\t117\n21:08\t37\n21:09\t65\n21:10\t58\n21:11\t49\n21:12\t30\n21:13\t19\n21:14\t42\n21:15\t39\n21:16\t29\n21:17\t40\n21:18\t69\n21:19\t28\n21:20\t51\n21:21\t60\n21:22\t101\n21:23\t62\n21:24\t121\n21:25\t47\n21:26\t34\n21:27\t32\n21:28\t24\n21:29\t36\n21:30\t97\n21:31\t59\n21:32\t128\n21:33\t144\n21:34\t49\n21:35\t69\n21:36\t113\n21:37\t140\n21:38\t95\n21:39\t59\n21:40\t38\n21:41\t24\n21:42\t26\n21:43\t46\n21:44\t45\n21:45\t30\n21:46\t38\n21:47\t65\n21:48\t112\n21:49\t36\n21:50\t53\n21:51\t39\n21:52\t26\n21:53\t24\n21:54\t18\n21:55\t31\n21:56\t34\n21:57\t31\n21:58\t43\n21:59\t16\n22:00\t97\n22:01\t83\n22:02\t42\n22:03\t15\n22:04\t68\n22:05\t58\n22:06\t29\n22:07\t20\n22:08\t23\n22:09\t32\n22:10\t29\n22:11\t30\n22:12\t64\n22:13\t36\n22:14\t23\n22:15\t24\n22:16\t60\n22:17\t57\n22:18\t29\n22:19\t41\n22:20\t27\n22:21\t41\n22:22\t70\n22:23\t67\n22:24\t86\n22:25\t53\n22:26\t49\n22:27\t25\n22:28\t29\n22:29\t18\n22:30\t6\n22:31\t21\n22:32\t15\n22:33\t49\n22:34\t51\n22:35\t52\n22:36\t80\n22:37\t119\n22:38\t22\n22:39\t45\n22:40\t40\n22:41\t37\n22:42\t27\n22:43\t29\n22:44\t33\n22:45\t84\n22:46\t176\n22:47\t83\n22:48\t141\n22:49\t36\n22:50\t95\n22:51\t80\n22:52\t63\n22:53\t39\n22:54\t37\n22:55\t63\n22:56\t78\n22:57\t26\n22:58\t63\n22:59\t52\n23:00\t66\n23:01\t86\n23:02\t45\n23:03\t34\n23:04\t24\n23:05\t76\n23:06\t109\n23:07\t143\n23:08\t39\n23:09\t69\n23:10\t47\n23:11\t56\n23:12\t23\n23:13\t34\n23:14\t43\n23:15\t45\n23:16\t35\n23:17\t8\n23:18\t3\n23:19\t18\n23:20\t21\n23:21\t21\n23:22\t25\n23:23\t13\n23:24\t20\n23:25\t16\n23:26\t23\n23:27\t13\n23:28\t17\n23:29\t44\n23:30\t26\n23:31\t95\n23:32\t45\n23:33\t41\n23:34\t30\n23:35\t8\n23:36\t10\n23:37\t17\n23:38\t13\n23:39\t23\n23:40\t89\n23:41\t36\n23:42\t22\n23:43\t56\n23:44\t70\n23:45\t99\n23:46\t75\n23:47\t38\n23:48\t18\n23:49\t56\n23:50\t30\n23:51\t29\n23:52\t47\n23:53\t19\n23:54\t20\n23:55\t11\n23:56\t18\n23:57\t40\n23:58\t166\n23:59\t41\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518338693130_-1864727904",
+      "id": "20180211-174453_1104972594",
+      "dateCreated": "Feb 11, 2018 5:44:53 PM",
+      "dateStarted": "Feb 12, 2018 2:54:37 PM",
+      "dateFinished": "Feb 12, 2018 2:54:37 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\nselect * from(\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where channel \u003d \u0027#overwatchleague_kr\u0027 order by time) where time \u003d \u002723:59\u0027\n",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 2:57:56 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tchannel\tname\tmsg\n23:59\t#overwatchleague_kr\ts252525s\t이게 퍼포먼스다\n23:59\t#overwatchleague_kr\txhfptmtm\t저게 프로냐\n23:59\t#overwatchleague_kr\twnsdud210\tㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tssakdook\trladlsrl1879 -\u003e 유사 문장 반복에 주의해주세요. [경고]\n23:59\t#overwatchleague_kr\tkorpono\t역시 경기보단 퍼포먼스 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tkornormal9\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\trladbqls1313\t강남스타일 ㅈㄴ웃기네 ㅋㅋ\n23:59\t#overwatchleague_kr\tqkfkafldhs\t오아시스냨ㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tksrand\t야자수 ?\n23:59\t#overwatchleague_kr\thoystar\t잼로리다\n23:59\t#overwatchleague_kr\tpoodding121\tㅂㅇㄹ\n23:59\t#overwatchleague_kr\tgtwind17\tㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tduvet_00\t오아시스 ㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tyuris27\t메이헴 1류다\n23:59\t#overwatchleague_kr\trladlsrl1879\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tgukbbongee\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tviolet0625\t1류 그자쳌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\talwaysdeadkenny\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tnamganu\tㅋㅋ경기 다ㅏ봤다\n23:59\t#overwatchleague_kr\tsunnerer\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\twnsdud210\t개꿀잼\n23:59\t#overwatchleague_kr\tavocado1203\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tssakdook\trladlsrl1879 -\u003e 유사 문장 반복에 주의해주세요.\n23:59\t#overwatchleague_kr\txhfptmtm\t프로팀 맞냐\n23:59\t#overwatchleague_kr\t1215hwkim\t가운데에 명훈ㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tlarcyuki\t게임이나 잘해 이 색기들앜ㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tgukbbongee\t일류팀\n23:59\t#overwatchleague_kr\tuasiou66\t어디서 가져온거얔ㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\t27pkw\t방금 게구리해설 선 존넘은거아니냐..\n23:59\t#overwatchleague_kr\tcluricaune\tㅋㅋ\n23:59\t#overwatchleague_kr\thoystar\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\t27pkw\t?????????\n23:59\t#overwatchleague_kr\tidppk1234\tㅠㅠ\n23:59\t#overwatchleague_kr\ttjddnr2647\t이게 프로지\n23:59\t#overwatchleague_kr\tmacdaniel86\t우끼끼끼\n23:59\t#overwatchleague_kr\tshampoo74\t헐 동양인 비하냐/?\n23:59\t#overwatchleague_kr\tyuris27\t바나나 츄라이츄라이\n23:59\t#overwatchleague_kr\tgaemoong\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\teukyumkim\t이친구들 실력만 받춰주면 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tlsm01246\tㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tcczzppyy\tBrokeBack BrokeBack BrokeBack BrokeBack\n23:59\t#overwatchleague_kr\tssakdook\t깨상 -\u003e 유사 문장 반복에 주의해주세요. [경고]\n23:59\t#overwatchleague_kr\trecursible\t강남스타일 ㅋㅋㅋ\n23:59\t#overwatchleague_kr\tneodol822\t말춤 ㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tkimbyounggyu\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tjws707\t왜케통통하냐 쟤네\n23:59\t#overwatchleague_kr\ta2118\t행위예술\n23:59\t#overwatchleague_kr\tmk007755\t쇼맨쉽 보게 ㅋㅋㅋ\n23:59\t#overwatchleague_kr\toxlipp\t말춤ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tkorpono\t왼족이 링크저 여친이네\n23:59\t#overwatchleague_kr\tnppnrolly\t게임이나 잘해 ㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tgtwind17\tㅋㅋㅋㅋㅋㅋㅋㅋ\u0027\n23:59\t#overwatchleague_kr\tyuris27\t갱냄스톼일\n23:59\t#overwatchleague_kr\tcs1115\t!경기\n23:59\t#overwatchleague_kr\tazurecyan\t종합세트ㅋㅋㅋ\n23:59\t#overwatchleague_kr\tgukbbongee\t강남스타일 엌ㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tncmplete\t그런와중에 말춤\n23:59\t#overwatchleague_kr\tdandy3725\t졸 웃기네 이것들 ㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tssakdook\t2월 11일 / [1경기] 오전 4시 : 뉴욕 엑셀시어 VS 런던 스핏파이어/ [2경기] 오전 6시 : 휴스턴 아웃로즈 VS 보스턴 업라이징 / [3경기] 오전 8시 : 플로리다 메이헴 VS 필라델피아 퓨전\n23:59\t#overwatchleague_kr\tduvet_00\t도핑 중\n23:59\t#overwatchleague_kr\tjunon0503\t맛집퍼포먼스는 일류\n23:59\t#overwatchleague_kr\tneodol822\t싸이 1승\n23:59\t#overwatchleague_kr\tnamganu\tㅋㅋㅋㅋ강남스타일까지\n23:59\t#overwatchleague_kr\ttreicas\t유쾌\n23:59\t#overwatchleague_kr\tblockppong\tㅁㅊㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tages81\tㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tcgwsj\tㅋㅋ\n23:59\t#overwatchleague_kr\tjasing0416\t그래 이거라도 일등하자\n23:59\t#overwatchleague_kr\tqkfkafldhs\t유럽형들 유쾌햌ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tcutegoldfish\t야자수씨빸ㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tkorpono\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tnam5192001\t스크림 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tmongga666\t동양인 비하..\n23:59\t#overwatchleague_kr\tkang9302\t못배워먹은놈들 자기계발이나해라\n23:59\t#overwatchleague_kr\tyuris27\t일류다 일류\n23:59\t#overwatchleague_kr\trekoj98\t그래 리그에 이런것도있어야지ㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\t1215hwkim\t미띤~\n23:59\t#overwatchleague_kr\tlion1761\t여시 플ㅗ리다 윸홰해\n23:59\t#overwatchleague_kr\tdandy3725\t걍 개그 해라 ㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tgaemoong\t좀 이기자ㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tseominji8863\t메이햄 미쳨ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tgatozrs\tㅋㅋㅋㅋㅋㅋㅋㅋ잼로리다 ㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tages81\t윈스턴ㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tmiyagi_kor\t윽쾌그자체\n23:59\t#overwatchleague_kr\tshampoo74\t동양인 비하아니냐????\n23:59\t#overwatchleague_kr\tlarcyuki\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tcryfooo\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tddttnn0202\t두고가?\n23:59\t#overwatchleague_kr\tgusdnr04\t바나나 ㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\twocks4328\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tlds1528\tㅁㅊㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tcutegoldfish\t등장이 팟지ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tssakdook\t찬샘이 -\u003e 유사 문장 반복에 주의해주세요. [경고]\n23:59\t#overwatchleague_kr\tsdm9513\t여관중 기---겁\n23:59\t#overwatchleague_kr\tbp21\t이걸 연습할 시간에.... ㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tduvet_00\t저 야자수 누가 치워 ㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tpppaaarrr\t맄저녀친 몸매봐라 와\n23:59\t#overwatchleague_kr\tgatozrs\t?\n23:59\t#overwatchleague_kr\tdifkskdlzk\t바나나 넘겻어 ㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\t27pkw\t동양인 비하아니냐\n23:59\t#overwatchleague_kr\tzxaa4798\t이게 뭘 비하여 ㅋㅋㅋㅋ가지가지 하네\n23:59\t#overwatchleague_kr\tcczzppyy\tSquid1 WutFace Squid4\n23:59\t#overwatchleague_kr\tjasing0416\t플로리다 유쾌헴\n23:59\t#overwatchleague_kr\tavocado1203\tㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tnamganu\tㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tssakdook\tAvocado1203 -\u003e 유사 문장 반복에 주의해주세요. [경고]\n23:59\t#overwatchleague_kr\tduvet_00\t민폐 팀 보소 ㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\t27pkw\t동양인 비하아니냐????\n23:59\t#overwatchleague_kr\tchainsew09\t얘네는 등장퍼포먼스 하나는 일류다\n23:59\t#overwatchleague_kr\thyung0328\t팩트다 팩트\n23:59\t#overwatchleague_kr\t1215hwkim\t퍼포먼슨가 ?\n23:59\t#overwatchleague_kr\tyuris27\t등장은 상위팀 메이헴\n23:59\t#overwatchleague_kr\tshambolic_ow\teffThink\n23:59\t#overwatchleague_kr\t4545rt\t퍼포먼스1등상\n23:59\t#overwatchleague_kr\tgusdnr04\t억떡 굴리지마;\n23:59\t#overwatchleague_kr\tviolet0625\t진짜 얘네들은 흥이 넘친다ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n23:59\t#overwatchleague_kr\tcczzppyy\tLUL LUL LUL LUL\n23:59\t#overwatchleague_kr\txhfptmtm\t저게 프로냐. 팀 성적은 바닥인데 싱글벙글 하하호호\n23:59\t#overwatchleague_kr\tyuju04\t플로리다 경기 잘 봤습니다\n23:59\t#overwatchleague_kr\tlarcyuki\t경기나 잘해 ㅋㅋㅋㅋㅋㅋㅋㅋㅋ\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518338758243_462156823",
+      "id": "20180211-174558_522836719",
+      "dateCreated": "Feb 11, 2018 5:45:58 PM",
+      "dateStarted": "Feb 12, 2018 2:57:56 PM",
+      "dateFinished": "Feb 12, 2018 2:57:57 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "PogChamp",
+      "text": "%sql\nselect time, count(msg) from(\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where lower(msg) like \"%pogchamp%\" order by time)\ngroup by time",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 3:54:59 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tcount(msg)\n00:00\t38\n00:01\t5\n00:02\t1\n00:03\t10\n00:04\t1\n00:05\t1\n00:06\t5\n00:07\t16\n00:08\t4\n00:09\t13\n00:10\t7\n00:11\t5\n00:12\t6\n00:14\t16\n00:15\t1\n00:16\t1\n00:17\t4\n00:18\t2\n00:19\t3\n00:20\t1\n00:22\t14\n00:23\t11\n00:24\t2\n00:25\t3\n00:26\t1\n00:27\t1\n00:28\t3\n00:29\t5\n00:30\t2\n00:31\t3\n00:32\t3\n00:34\t2\n00:36\t1\n00:37\t6\n00:38\t4\n00:39\t7\n00:40\t17\n00:41\t1\n00:42\t6\n00:44\t10\n00:45\t30\n00:46\t5\n00:47\t8\n00:48\t9\n00:49\t2\n00:50\t7\n00:51\t5\n00:52\t1\n00:53\t4\n00:54\t1\n00:55\t8\n00:56\t3\n00:57\t17\n00:58\t2\n00:59\t2\n01:00\t4\n01:01\t11\n01:02\t4\n01:03\t7\n01:04\t9\n01:05\t13\n01:06\t19\n01:07\t18\n01:08\t4\n01:09\t16\n01:10\t4\n01:11\t4\n01:12\t20\n01:13\t51\n01:14\t20\n01:15\t16\n01:16\t11\n01:17\t2\n01:18\t2\n01:19\t4\n01:20\t14\n01:21\t4\n01:22\t2\n01:23\t7\n01:24\t14\n01:25\t19\n01:26\t4\n01:28\t4\n01:29\t8\n01:30\t4\n01:31\t10\n01:32\t16\n01:33\t12\n01:34\t25\n01:35\t18\n01:36\t7\n01:37\t7\n01:38\t4\n01:39\t19\n01:40\t11\n01:41\t4\n01:42\t8\n01:43\t12\n01:44\t19\n01:45\t145\n01:46\t35\n01:47\t25\n01:48\t29\n01:49\t20\n01:50\t21\n01:51\t10\n01:52\t12\n01:53\t7\n01:54\t3\n01:55\t4\n01:56\t5\n01:57\t1\n01:58\t6\n01:59\t6\n02:00\t3\n02:01\t20\n02:02\t4\n02:03\t2\n02:04\t3\n02:05\t12\n02:06\t11\n02:07\t6\n02:08\t9\n02:09\t29\n02:10\t14\n02:11\t25\n02:12\t7\n02:13\t1\n02:14\t6\n02:15\t2\n02:16\t9\n02:17\t8\n02:18\t4\n02:19\t1\n02:20\t6\n02:21\t4\n02:22\t13\n02:23\t13\n02:24\t31\n02:25\t37\n02:26\t47\n02:27\t21\n02:28\t6\n02:29\t30\n02:30\t42\n02:31\t33\n02:32\t21\n02:33\t22\n02:34\t44\n02:35\t7\n02:36\t3\n02:37\t3\n02:38\t9\n02:39\t20\n02:40\t7\n02:41\t7\n02:42\t13\n02:43\t4\n02:44\t12\n02:45\t3\n02:46\t35\n02:47\t17\n02:48\t32\n02:49\t22\n02:50\t20\n02:51\t6\n02:52\t2\n02:53\t3\n02:54\t2\n02:55\t2\n02:56\t6\n02:57\t10\n02:58\t4\n02:59\t2\n03:00\t1\n03:01\t8\n03:02\t8\n03:03\t15\n03:04\t24\n03:05\t7\n03:06\t9\n03:07\t4\n03:08\t3\n03:09\t16\n03:10\t2\n03:11\t3\n03:12\t5\n03:13\t1\n03:14\t21\n03:15\t5\n03:16\t14\n03:17\t6\n03:18\t7\n03:19\t4\n03:20\t1\n03:21\t7\n03:22\t7\n03:23\t14\n03:24\t89\n03:25\t12\n03:26\t16\n03:27\t7\n03:28\t26\n03:29\t7\n03:30\t9\n03:31\t29\n03:32\t23\n03:33\t19\n03:34\t57\n03:35\t3\n03:36\t6\n03:37\t10\n03:38\t5\n03:39\t7\n03:40\t1\n03:41\t19\n03:42\t8\n03:43\t14\n03:44\t10\n03:45\t2\n03:46\t10\n03:47\t3\n03:48\t11\n03:49\t3\n03:50\t9\n03:51\t10\n03:52\t26\n03:53\t6\n03:54\t1\n03:55\t3\n03:56\t8\n03:57\t39\n03:58\t12\n03:59\t6\n04:00\t7\n04:01\t38\n04:02\t15\n04:03\t12\n04:04\t7\n04:05\t5\n04:06\t14\n04:07\t34\n04:08\t51\n04:09\t7\n04:10\t5\n04:11\t20\n04:12\t3\n04:13\t5\n04:14\t2\n04:15\t31\n04:16\t37\n04:17\t45\n04:18\t31\n04:19\t93\n04:20\t42\n04:21\t37\n04:22\t39\n04:23\t29\n04:24\t28\n04:25\t14\n04:26\t25\n04:27\t13\n04:28\t49\n04:29\t18\n04:30\t8\n04:31\t5\n04:32\t3\n04:33\t7\n04:34\t29\n04:35\t13\n04:36\t4\n04:37\t1\n04:38\t22\n04:39\t10\n04:40\t2\n04:41\t4\n04:42\t16\n04:43\t5\n04:44\t19\n04:45\t5\n04:46\t16\n04:47\t46\n04:48\t33\n04:49\t29\n04:50\t38\n04:51\t5\n04:52\t9\n04:53\t7\n04:54\t9\n04:55\t21\n04:56\t4\n04:58\t11\n04:59\t3\n05:00\t3\n05:01\t2\n05:02\t6\n05:03\t2\n05:05\t3\n05:06\t1\n05:07\t1\n05:08\t5\n05:09\t1\n05:29\t2\n05:30\t2\n05:31\t15\n05:32\t10\n05:33\t20\n05:34\t30\n05:35\t10\n05:36\t2\n05:37\t5\n05:38\t8\n05:40\t10\n05:41\t7\n05:42\t21\n05:43\t29\n05:44\t16\n05:45\t3\n05:46\t16\n05:47\t15\n05:48\t9\n05:49\t10\n05:50\t11\n05:51\t4\n05:52\t4\n05:53\t12\n05:54\t14\n05:55\t17\n05:56\t9\n05:57\t29\n05:58\t6\n05:59\t2\n06:00\t30\n06:01\t18\n06:02\t1\n06:03\t41\n06:04\t19\n06:05\t32\n06:06\t8\n06:07\t14\n06:08\t2\n06:09\t23\n06:10\t22\n06:11\t17\n06:12\t9\n06:13\t11\n06:14\t3\n06:15\t18\n06:16\t26\n06:17\t26\n06:18\t9\n06:19\t10\n06:20\t6\n06:21\t1\n06:22\t1\n06:23\t1\n06:38\t2\n07:36\t1\n08:02\t1\n08:08\t2\n08:13\t1\n08:17\t1\n08:19\t1\n08:31\t1\n18:17\t1\n18:25\t1\n18:30\t7\n18:31\t1\n18:40\t1\n18:41\t2\n18:43\t1\n18:45\t2\n18:46\t10\n18:47\t3\n18:48\t4\n18:49\t6\n18:50\t1\n18:51\t9\n18:52\t3\n18:53\t3\n18:54\t6\n18:55\t3\n18:56\t7\n18:57\t4\n18:58\t5\n18:59\t13\n19:00\t50\n19:01\t36\n19:02\t19\n19:03\t55\n19:04\t44\n19:05\t36\n19:06\t18\n19:07\t11\n19:08\t6\n19:09\t11\n19:10\t13\n19:11\t15\n19:12\t15\n19:13\t20\n19:14\t4\n19:15\t69\n19:16\t96\n19:17\t64\n19:18\t27\n19:19\t32\n19:20\t50\n19:21\t4\n19:22\t5\n19:23\t3\n19:24\t45\n19:25\t75\n19:26\t67\n19:27\t26\n19:28\t52\n19:29\t58\n19:30\t12\n19:31\t52\n19:32\t52\n19:33\t40\n19:34\t12\n19:35\t4\n19:36\t5\n19:37\t16\n19:38\t6\n19:39\t4\n19:40\t2\n19:41\t5\n19:42\t13\n19:43\t5\n19:44\t23\n19:45\t5\n19:46\t10\n19:47\t7\n19:48\t2\n19:49\t35\n19:50\t24\n19:51\t37\n19:52\t3\n19:54\t11\n19:55\t11\n19:56\t12\n19:57\t19\n19:58\t6\n19:59\t17\n20:00\t21\n20:01\t6\n20:02\t2\n20:03\t8\n20:04\t3\n20:05\t2\n20:06\t4\n20:07\t2\n20:08\t6\n20:09\t8\n20:10\t11\n20:11\t21\n20:12\t4\n20:13\t32\n20:14\t29\n20:15\t13\n20:16\t62\n20:17\t26\n20:18\t127\n20:19\t66\n20:20\t15\n20:21\t11\n20:22\t43\n20:23\t29\n20:24\t44\n20:25\t9\n20:26\t46\n20:27\t16\n20:28\t40\n20:29\t10\n20:30\t17\n20:31\t24\n20:32\t15\n20:33\t12\n20:34\t16\n20:35\t9\n20:36\t7\n20:37\t40\n20:38\t15\n20:39\t3\n20:40\t31\n20:41\t6\n20:42\t10\n20:43\t10\n20:44\t7\n20:45\t9\n20:46\t4\n20:47\t14\n20:48\t30\n20:49\t24\n20:50\t7\n20:51\t3\n20:52\t9\n20:53\t5\n20:54\t53\n20:55\t57\n20:56\t64\n20:57\t27\n20:58\t61\n20:59\t55\n21:00\t17\n21:01\t15\n21:02\t7\n21:03\t58\n21:04\t14\n21:05\t55\n21:06\t6\n21:07\t32\n21:08\t17\n21:09\t56\n21:10\t25\n21:11\t20\n21:12\t126\n21:13\t37\n21:14\t20\n21:15\t19\n21:16\t9\n21:17\t5\n21:18\t12\n21:19\t25\n21:20\t47\n21:21\t104\n21:22\t25\n21:23\t23\n21:24\t30\n21:25\t12\n21:26\t15\n21:27\t8\n21:28\t15\n21:29\t14\n21:30\t17\n21:31\t15\n21:32\t27\n21:33\t22\n21:34\t25\n21:35\t9\n21:36\t20\n21:37\t1\n21:38\t2\n21:39\t5\n21:40\t6\n21:41\t22\n21:42\t12\n21:43\t7\n21:44\t36\n21:45\t47\n21:46\t41\n21:47\t11\n21:48\t61\n21:49\t9\n21:50\t6\n21:51\t24\n21:52\t22\n21:53\t1\n21:54\t12\n21:55\t26\n21:56\t11\n21:57\t6\n21:58\t4\n21:59\t5\n22:00\t12\n22:01\t26\n22:02\t55\n22:03\t10\n22:04\t12\n22:05\t83\n22:06\t69\n22:07\t27\n22:08\t9\n22:09\t7\n22:10\t7\n22:11\t12\n22:12\t2\n22:13\t1\n22:14\t1\n22:15\t2\n22:16\t5\n22:17\t36\n22:18\t34\n22:19\t9\n22:20\t2\n22:21\t27\n22:22\t42\n22:23\t2\n22:24\t17\n22:25\t63\n22:26\t78\n22:27\t20\n22:28\t9\n22:29\t14\n22:30\t21\n22:31\t1\n22:32\t4\n22:33\t5\n22:34\t1\n22:35\t8\n22:36\t4\n22:37\t7\n22:38\t5\n22:39\t5\n22:40\t38\n22:41\t27\n22:42\t23\n22:43\t49\n22:44\t19\n22:45\t21\n22:46\t11\n22:47\t88\n22:48\t59\n22:49\t101\n22:50\t95\n22:51\t19\n22:52\t5\n22:53\t35\n22:54\t83\n22:55\t1\n22:56\t8\n22:57\t16\n22:58\t11\n22:59\t11\n23:00\t10\n23:01\t4\n23:02\t19\n23:03\t7\n23:04\t27\n23:05\t47\n23:06\t38\n23:07\t10\n23:08\t9\n23:09\t25\n23:10\t5\n23:11\t16\n23:12\t37\n23:13\t14\n23:14\t24\n23:15\t16\n23:16\t5\n23:17\t3\n23:18\t4\n23:19\t6\n23:20\t14\n23:21\t4\n23:22\t10\n23:23\t2\n23:24\t1\n23:25\t19\n23:26\t14\n23:27\t37\n23:28\t53\n23:29\t63\n23:30\t11\n23:31\t15\n23:32\t7\n23:33\t17\n23:34\t20\n23:35\t39\n23:36\t11\n23:37\t2\n23:38\t4\n23:39\t10\n23:40\t11\n23:41\t4\n23:42\t6\n23:43\t2\n23:44\t6\n23:45\t11\n23:46\t29\n23:47\t11\n23:48\t6\n23:49\t5\n23:50\t8\n23:51\t2\n23:52\t6\n23:53\t2\n23:54\t8\n23:55\t5\n23:56\t6\n23:57\t7\n23:58\t24\n23:59\t6\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518409974356_1068802",
+      "id": "20180212-133254_1480254622",
+      "dateCreated": "Feb 12, 2018 1:32:54 PM",
+      "dateStarted": "Feb 12, 2018 3:51:52 PM",
+      "dateFinished": "Feb 12, 2018 3:51:53 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "와",
+      "text": "%sql\nselect time, count(msg) from(\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where lower(msg) like \"%와%\" order by time)\ngroup by time\n",
+      "user": "admin",
+      "dateUpdated": "Mar 26, 2018 10:52:23 AM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true,
+        "editorHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tcount(msg)\n00:00\t2\n00:01\t1\n00:12\t1\n00:13\t1\n00:18\t1\n00:19\t2\n00:21\t1\n00:23\t3\n00:24\t1\n00:27\t1\n00:29\t1\n00:38\t1\n00:39\t1\n00:40\t2\n00:41\t2\n00:45\t4\n00:46\t3\n00:51\t1\n00:54\t4\n00:55\t3\n00:56\t1\n00:57\t2\n00:58\t1\n01:00\t1\n01:02\t1\n01:03\t1\n01:05\t1\n01:07\t2\n01:08\t1\n01:10\t3\n01:11\t2\n01:13\t3\n01:14\t1\n01:17\t1\n01:18\t2\n01:21\t5\n01:22\t1\n01:23\t1\n01:25\t1\n01:26\t6\n01:27\t1\n01:30\t1\n01:33\t4\n01:34\t1\n01:35\t1\n01:36\t4\n01:37\t3\n01:38\t2\n01:41\t1\n01:43\t1\n01:44\t2\n01:45\t1\n01:46\t22\n01:47\t9\n01:48\t4\n01:49\t5\n01:51\t1\n01:52\t3\n01:53\t12\n01:54\t4\n01:55\t9\n01:56\t1\n01:57\t3\n01:58\t1\n02:00\t2\n02:02\t3\n02:04\t1\n02:05\t1\n02:07\t1\n02:09\t1\n02:10\t1\n02:12\t1\n02:13\t1\n02:14\t2\n02:18\t1\n02:19\t1\n02:20\t3\n02:21\t3\n02:22\t5\n02:23\t1\n02:24\t8\n02:25\t8\n02:26\t6\n02:27\t6\n02:28\t2\n02:29\t5\n02:30\t14\n02:31\t7\n02:32\t5\n02:33\t2\n02:34\t5\n02:35\t4\n02:36\t1\n02:38\t1\n02:41\t3\n02:42\t1\n02:46\t1\n02:47\t2\n02:48\t2\n02:51\t1\n02:53\t1\n02:54\t2\n02:55\t3\n02:56\t3\n02:57\t2\n02:58\t1\n03:01\t1\n03:02\t2\n03:03\t5\n03:04\t4\n03:05\t4\n03:06\t12\n03:07\t1\n03:08\t1\n03:09\t3\n03:11\t1\n03:12\t1\n03:13\t2\n03:15\t7\n03:17\t3\n03:18\t1\n03:19\t4\n03:20\t2\n03:21\t2\n03:22\t1\n03:23\t5\n03:24\t5\n03:25\t3\n03:27\t2\n03:28\t2\n03:29\t2\n03:30\t1\n03:31\t1\n03:32\t7\n03:34\t10\n03:35\t30\n03:36\t4\n03:37\t3\n03:39\t4\n03:40\t1\n03:41\t1\n03:42\t3\n03:43\t6\n03:44\t2\n03:45\t2\n03:48\t1\n03:49\t1\n03:50\t1\n03:51\t1\n03:52\t1\n03:53\t1\n03:55\t2\n03:56\t1\n03:57\t5\n03:58\t2\n03:59\t3\n04:00\t1\n04:01\t2\n04:02\t1\n04:04\t1\n04:06\t2\n04:07\t9\n04:08\t41\n04:09\t1\n04:10\t1\n04:11\t1\n04:12\t3\n04:14\t3\n04:16\t7\n04:17\t1\n04:18\t23\n04:19\t7\n04:20\t34\n04:21\t1\n04:22\t10\n04:23\t21\n04:24\t6\n04:25\t2\n04:26\t3\n04:27\t5\n04:28\t3\n04:29\t10\n04:30\t2\n04:31\t2\n04:33\t2\n04:35\t16\n04:36\t2\n04:38\t6\n04:39\t5\n04:41\t1\n04:42\t2\n04:43\t7\n04:44\t2\n04:45\t6\n04:46\t4\n04:47\t46\n04:48\t18\n04:49\t2\n04:52\t1\n04:53\t3\n04:54\t3\n04:55\t3\n04:59\t1\n05:00\t1\n05:01\t1\n05:02\t1\n05:03\t3\n05:04\t5\n05:07\t5\n05:29\t1\n05:30\t2\n05:31\t4\n05:32\t3\n05:33\t5\n05:34\t13\n05:35\t7\n05:36\t3\n05:37\t3\n05:38\t2\n05:40\t5\n05:41\t4\n05:42\t5\n05:43\t15\n05:44\t23\n05:45\t4\n05:46\t4\n05:47\t3\n05:48\t1\n05:49\t4\n05:50\t2\n05:51\t2\n05:52\t1\n05:54\t3\n05:56\t11\n05:57\t4\n05:58\t31\n05:59\t2\n06:00\t3\n06:01\t11\n06:02\t1\n06:03\t11\n06:04\t8\n06:05\t11\n06:06\t1\n06:07\t14\n06:08\t8\n06:09\t4\n06:10\t18\n06:11\t23\n06:12\t4\n06:13\t2\n06:14\t6\n06:15\t2\n06:16\t14\n06:17\t1\n06:18\t2\n06:20\t9\n06:22\t2\n06:23\t1\n06:24\t1\n06:27\t2\n06:32\t1\n06:35\t1\n06:49\t1\n06:58\t1\n07:06\t1\n07:14\t1\n07:15\t1\n07:18\t2\n07:20\t1\n07:31\t2\n08:07\t1\n08:17\t1\n08:18\t1\n18:38\t3\n18:39\t2\n18:44\t1\n18:45\t1\n18:51\t3\n18:52\t5\n18:54\t2\n18:55\t2\n18:57\t2\n18:59\t2\n19:01\t1\n19:03\t2\n19:04\t5\n19:06\t2\n19:07\t1\n19:09\t1\n19:11\t1\n19:12\t1\n19:13\t1\n19:14\t1\n19:15\t1\n19:16\t15\n19:17\t11\n19:18\t8\n19:19\t4\n19:20\t1\n19:21\t8\n19:22\t4\n19:23\t1\n19:25\t21\n19:26\t30\n19:27\t6\n19:28\t20\n19:29\t4\n19:30\t18\n19:31\t4\n19:32\t3\n19:34\t2\n19:37\t1\n19:38\t4\n19:40\t1\n19:41\t5\n19:42\t3\n19:43\t1\n19:44\t2\n19:45\t1\n19:46\t1\n19:47\t2\n19:48\t1\n19:49\t1\n19:50\t11\n19:51\t6\n19:52\t14\n19:53\t1\n19:55\t10\n19:56\t1\n19:57\t24\n19:58\t1\n19:59\t3\n20:00\t1\n20:03\t1\n20:04\t3\n20:05\t4\n20:06\t4\n20:09\t5\n20:10\t7\n20:11\t4\n20:12\t3\n20:13\t2\n20:14\t5\n20:15\t3\n20:16\t7\n20:17\t3\n20:18\t6\n20:19\t4\n20:20\t2\n20:22\t7\n20:23\t8\n20:24\t5\n20:25\t4\n20:26\t1\n20:27\t12\n20:28\t10\n20:29\t7\n20:31\t1\n20:32\t2\n20:34\t1\n20:35\t1\n20:37\t4\n20:39\t1\n20:40\t2\n20:41\t7\n20:42\t2\n20:43\t1\n20:44\t2\n20:45\t4\n20:46\t2\n20:47\t1\n20:48\t3\n20:49\t2\n20:50\t2\n20:54\t7\n20:55\t5\n20:56\t33\n20:57\t13\n20:58\t10\n20:59\t7\n21:00\t9\n21:01\t2\n21:03\t1\n21:04\t6\n21:05\t10\n21:06\t2\n21:07\t1\n21:09\t5\n21:10\t16\n21:11\t4\n21:12\t11\n21:13\t3\n21:14\t2\n21:15\t1\n21:16\t6\n21:17\t1\n21:19\t2\n21:21\t1\n21:24\t1\n21:26\t1\n21:27\t1\n21:28\t1\n21:31\t1\n21:32\t1\n21:33\t2\n21:34\t2\n21:36\t1\n21:42\t1\n21:45\t2\n21:46\t8\n21:47\t3\n21:48\t5\n21:49\t9\n21:51\t4\n21:52\t11\n21:53\t1\n21:54\t1\n21:56\t6\n21:57\t1\n21:59\t2\n22:00\t1\n22:01\t3\n22:02\t24\n22:03\t1\n22:04\t1\n22:06\t3\n22:07\t6\n22:09\t1\n22:11\t2\n22:12\t2\n22:13\t2\n22:14\t2\n22:15\t1\n22:17\t1\n22:18\t23\n22:19\t5\n22:22\t8\n22:24\t2\n22:25\t1\n22:28\t1\n22:30\t3\n22:32\t1\n22:36\t1\n22:37\t1\n22:41\t1\n22:42\t11\n22:43\t8\n22:44\t6\n22:45\t4\n22:46\t2\n22:47\t5\n22:48\t10\n22:49\t7\n22:50\t10\n22:51\t1\n22:52\t1\n22:53\t1\n22:54\t1\n22:57\t2\n22:58\t2\n22:59\t2\n23:01\t1\n23:03\t3\n23:05\t2\n23:06\t8\n23:07\t12\n23:09\t1\n23:10\t2\n23:12\t1\n23:13\t5\n23:15\t3\n23:17\t1\n23:19\t1\n23:20\t1\n23:22\t1\n23:23\t3\n23:26\t10\n23:27\t3\n23:28\t2\n23:29\t9\n23:30\t6\n23:31\t3\n23:32\t2\n23:33\t6\n23:34\t4\n23:35\t5\n23:36\t8\n23:37\t1\n23:38\t5\n23:39\t6\n23:42\t2\n23:44\t1\n23:47\t1\n23:49\t1\n23:51\t2\n23:54\t2\n23:55\t1\n23:56\t1\n23:59\t2\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518418040014_2063797883",
+      "id": "20180212-154720_1719193614",
+      "dateCreated": "Feb 12, 2018 3:47:20 PM",
+      "dateStarted": "Feb 12, 2018 3:51:03 PM",
+      "dateFinished": "Feb 12, 2018 3:51:04 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "ㅋㅋㅋ",
+      "text": "%sql\nselect time, count(msg) from(\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where lower(msg) like \"%ㅋㅋㅋ%\" order by time)\ngroup by time\n",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 3:54:37 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "editorHide": true,
+        "title": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tcount(msg)\n00:00\t2\n00:01\t3\n00:02\t5\n00:03\t10\n00:04\t9\n00:05\t7\n00:06\t2\n00:07\t1\n00:08\t2\n00:09\t1\n00:11\t1\n00:12\t3\n00:14\t2\n00:15\t5\n00:17\t1\n00:19\t7\n00:20\t1\n00:21\t1\n00:22\t5\n00:23\t3\n00:26\t24\n00:27\t3\n00:29\t2\n00:31\t2\n00:35\t19\n00:36\t6\n00:37\t3\n00:38\t3\n00:40\t5\n00:42\t7\n00:43\t2\n00:44\t2\n00:45\t11\n00:46\t28\n00:47\t1\n00:50\t1\n00:51\t2\n00:52\t1\n00:53\t2\n00:54\t1\n00:55\t1\n00:56\t1\n00:58\t1\n00:59\t4\n01:00\t1\n01:01\t5\n01:02\t2\n01:03\t2\n01:05\t1\n01:06\t1\n01:07\t11\n01:08\t12\n01:09\t1\n01:10\t3\n01:11\t2\n01:12\t2\n01:13\t5\n01:14\t15\n01:15\t5\n01:16\t3\n01:17\t1\n01:18\t6\n01:19\t6\n01:20\t2\n01:21\t9\n01:22\t2\n01:24\t3\n01:26\t9\n01:27\t2\n01:28\t3\n01:29\t3\n01:30\t1\n01:31\t2\n01:32\t4\n01:33\t53\n01:34\t45\n01:35\t13\n01:36\t8\n01:37\t52\n01:38\t41\n01:39\t9\n01:40\t14\n01:41\t8\n01:42\t4\n01:43\t5\n01:44\t7\n01:45\t10\n01:46\t7\n01:47\t42\n01:48\t24\n01:49\t39\n01:50\t5\n01:51\t29\n01:52\t8\n01:53\t18\n01:54\t38\n01:55\t86\n01:56\t33\n01:57\t2\n01:58\t2\n01:59\t14\n02:00\t8\n02:01\t15\n02:02\t3\n02:03\t2\n02:04\t11\n02:05\t1\n02:07\t3\n02:09\t1\n02:10\t3\n02:11\t35\n02:12\t5\n02:13\t27\n02:14\t6\n02:15\t2\n02:16\t2\n02:17\t2\n02:18\t8\n02:19\t8\n02:20\t1\n02:21\t2\n02:22\t6\n02:23\t5\n02:24\t10\n02:25\t2\n02:26\t3\n02:27\t20\n02:28\t13\n02:29\t15\n02:30\t25\n02:31\t13\n02:32\t23\n02:33\t54\n02:34\t31\n02:35\t28\n02:36\t64\n02:37\t14\n02:38\t11\n02:39\t8\n02:40\t17\n02:41\t65\n02:42\t8\n02:43\t6\n02:44\t18\n02:45\t7\n02:46\t1\n02:47\t15\n02:48\t8\n02:49\t14\n02:50\t27\n02:52\t3\n02:53\t85\n02:54\t92\n02:55\t81\n02:56\t80\n02:57\t64\n02:58\t6\n02:59\t17\n03:00\t9\n03:01\t16\n03:02\t2\n03:03\t4\n03:04\t13\n03:05\t9\n03:06\t3\n03:07\t1\n03:08\t5\n03:09\t3\n03:10\t12\n03:11\t4\n03:12\t10\n03:13\t7\n03:14\t7\n03:15\t5\n03:16\t5\n03:17\t27\n03:18\t8\n03:19\t62\n03:20\t18\n03:21\t53\n03:22\t8\n03:23\t8\n03:24\t36\n03:25\t12\n03:26\t9\n03:27\t45\n03:28\t25\n03:29\t23\n03:30\t5\n03:31\t4\n03:32\t10\n03:33\t11\n03:34\t9\n03:35\t37\n03:36\t11\n03:37\t18\n03:38\t24\n03:39\t32\n03:40\t11\n03:41\t6\n03:42\t3\n03:43\t6\n03:44\t2\n03:45\t4\n03:46\t2\n03:47\t2\n03:48\t3\n03:49\t2\n03:50\t6\n03:51\t1\n03:52\t4\n03:53\t7\n03:54\t5\n03:55\t14\n03:56\t3\n03:57\t6\n03:58\t9\n03:59\t5\n04:00\t22\n04:01\t25\n04:02\t51\n04:03\t6\n04:04\t3\n04:05\t4\n04:06\t1\n04:07\t7\n04:08\t42\n04:09\t19\n04:10\t8\n04:11\t7\n04:12\t7\n04:13\t14\n04:14\t14\n04:15\t12\n04:16\t9\n04:17\t8\n04:18\t13\n04:19\t10\n04:20\t68\n04:21\t15\n04:22\t31\n04:23\t119\n04:24\t37\n04:25\t46\n04:26\t40\n04:27\t40\n04:28\t26\n04:29\t26\n04:30\t79\n04:31\t10\n04:32\t8\n04:33\t4\n04:34\t5\n04:35\t23\n04:36\t11\n04:37\t7\n04:38\t2\n04:39\t34\n04:40\t19\n04:41\t3\n04:42\t8\n04:43\t4\n04:44\t3\n04:45\t5\n04:46\t22\n04:47\t21\n04:48\t24\n04:49\t95\n04:50\t64\n04:51\t47\n04:52\t80\n04:53\t64\n04:54\t19\n04:55\t48\n04:56\t20\n04:57\t14\n04:58\t14\n04:59\t16\n05:00\t6\n05:01\t11\n05:02\t5\n05:03\t3\n05:04\t3\n05:05\t4\n05:06\t6\n05:07\t12\n05:08\t19\n05:09\t31\n05:29\t4\n05:30\t6\n05:31\t9\n05:32\t7\n05:33\t11\n05:34\t21\n05:35\t20\n05:36\t8\n05:37\t5\n05:38\t16\n05:39\t7\n05:40\t5\n05:41\t11\n05:42\t9\n05:43\t9\n05:44\t30\n05:45\t15\n05:46\t38\n05:47\t22\n05:48\t20\n05:49\t16\n05:50\t11\n05:51\t9\n05:52\t9\n05:53\t4\n05:54\t3\n05:55\t1\n05:56\t4\n05:57\t3\n05:58\t5\n05:59\t9\n06:00\t20\n06:01\t16\n06:02\t21\n06:03\t14\n06:04\t15\n06:05\t12\n06:06\t18\n06:07\t16\n06:08\t9\n06:09\t28\n06:10\t16\n06:11\t40\n06:12\t83\n06:13\t42\n06:14\t10\n06:15\t37\n06:16\t10\n06:17\t49\n06:18\t36\n06:19\t40\n06:20\t80\n06:21\t6\n06:22\t9\n06:23\t1\n06:26\t2\n06:29\t3\n06:30\t1\n06:31\t3\n06:37\t1\n06:39\t1\n06:40\t4\n06:41\t3\n06:42\t3\n06:43\t1\n06:46\t1\n06:47\t4\n06:49\t1\n06:51\t1\n06:59\t1\n07:04\t1\n07:11\t2\n07:13\t1\n07:14\t1\n07:18\t1\n07:19\t1\n07:26\t1\n07:37\t1\n07:49\t1\n08:01\t1\n08:08\t1\n08:17\t1\n08:25\t1\n08:29\t1\n08:32\t1\n08:33\t2\n08:34\t3\n08:35\t2\n08:36\t1\n08:37\t5\n08:38\t1\n18:43\t1\n18:44\t1\n18:45\t2\n18:49\t3\n18:50\t5\n18:52\t2\n18:53\t2\n18:54\t2\n18:55\t3\n18:57\t3\n18:58\t4\n18:59\t3\n19:00\t6\n19:01\t2\n19:02\t11\n19:03\t21\n19:04\t7\n19:05\t11\n19:06\t55\n19:07\t31\n19:08\t70\n19:09\t86\n19:10\t60\n19:11\t62\n19:12\t58\n19:13\t7\n19:15\t2\n19:16\t2\n19:17\t3\n19:18\t7\n19:19\t7\n19:20\t3\n19:21\t4\n19:22\t5\n19:23\t5\n19:24\t9\n19:25\t9\n19:26\t12\n19:27\t6\n19:28\t13\n19:29\t6\n19:30\t21\n19:31\t36\n19:32\t11\n19:33\t6\n19:34\t25\n19:35\t27\n19:36\t3\n19:37\t15\n19:38\t2\n19:39\t1\n19:40\t11\n19:41\t20\n19:42\t18\n19:43\t11\n19:44\t12\n19:45\t9\n19:46\t8\n19:47\t9\n19:48\t3\n19:49\t2\n19:50\t3\n19:51\t8\n19:52\t7\n19:53\t17\n19:54\t3\n19:55\t6\n19:56\t6\n19:57\t13\n19:58\t3\n20:01\t4\n20:02\t6\n20:03\t2\n20:04\t6\n20:05\t4\n20:06\t3\n20:08\t7\n20:09\t6\n20:10\t15\n20:11\t12\n20:12\t4\n20:13\t7\n20:14\t11\n20:15\t10\n20:16\t46\n20:17\t27\n20:18\t12\n20:19\t10\n20:20\t4\n20:22\t5\n20:23\t9\n20:24\t8\n20:25\t23\n20:26\t3\n20:27\t7\n20:28\t17\n20:29\t15\n20:30\t12\n20:31\t4\n20:32\t1\n20:33\t8\n20:34\t8\n20:35\t5\n20:36\t5\n20:38\t7\n20:39\t8\n20:40\t6\n20:41\t4\n20:42\t18\n20:43\t25\n20:44\t2\n20:45\t62\n20:46\t21\n20:47\t9\n20:48\t4\n20:49\t10\n20:50\t14\n20:51\t8\n20:52\t13\n20:53\t8\n20:54\t6\n20:55\t24\n20:56\t34\n20:57\t26\n20:58\t48\n20:59\t14\n21:00\t11\n21:01\t18\n21:02\t11\n21:03\t24\n21:04\t20\n21:05\t16\n21:06\t17\n21:07\t62\n21:08\t29\n21:09\t9\n21:10\t37\n21:11\t21\n21:12\t19\n21:13\t28\n21:14\t17\n21:15\t9\n21:16\t8\n21:17\t2\n21:19\t1\n21:20\t4\n21:22\t2\n21:23\t2\n21:24\t3\n21:25\t1\n21:29\t9\n21:30\t14\n21:31\t5\n21:32\t10\n21:33\t16\n21:34\t5\n21:35\t35\n21:36\t24\n21:37\t52\n21:38\t19\n21:39\t49\n21:40\t30\n21:41\t49\n21:42\t60\n21:43\t10\n21:44\t5\n21:45\t3\n21:46\t2\n21:47\t2\n21:51\t3\n21:52\t11\n21:53\t5\n21:54\t1\n21:56\t6\n21:58\t4\n21:59\t1\n22:00\t1\n22:01\t1\n22:02\t9\n22:03\t9\n22:04\t11\n22:05\t1\n22:07\t1\n22:08\t6\n22:09\t19\n22:10\t5\n22:11\t1\n22:12\t7\n22:13\t1\n22:14\t1\n22:16\t4\n22:17\t2\n22:18\t4\n22:19\t3\n22:20\t3\n22:22\t3\n22:23\t29\n22:24\t14\n22:25\t8\n22:26\t1\n22:27\t3\n22:28\t4\n22:29\t4\n22:30\t2\n22:31\t3\n22:32\t3\n22:33\t2\n22:35\t1\n22:36\t2\n22:37\t8\n22:38\t8\n22:39\t3\n22:40\t3\n22:41\t10\n22:42\t2\n22:43\t3\n22:44\t10\n22:45\t12\n22:46\t11\n22:47\t13\n22:48\t14\n22:49\t11\n22:50\t11\n22:51\t5\n22:52\t5\n22:53\t2\n22:54\t6\n22:55\t19\n22:56\t3\n22:57\t2\n22:58\t1\n22:59\t1\n23:00\t1\n23:01\t2\n23:03\t15\n23:04\t2\n23:05\t15\n23:06\t17\n23:07\t17\n23:08\t4\n23:09\t2\n23:10\t5\n23:12\t3\n23:13\t22\n23:14\t24\n23:15\t9\n23:16\t6\n23:17\t3\n23:18\t1\n23:19\t1\n23:20\t3\n23:21\t3\n23:22\t3\n23:23\t3\n23:24\t3\n23:26\t19\n23:27\t9\n23:28\t6\n23:29\t7\n23:30\t26\n23:31\t17\n23:32\t6\n23:33\t26\n23:34\t22\n23:35\t18\n23:36\t41\n23:37\t10\n23:38\t20\n23:39\t7\n23:40\t3\n23:41\t1\n23:42\t2\n23:44\t2\n23:45\t1\n23:46\t3\n23:47\t1\n23:49\t1\n23:50\t2\n23:51\t2\n23:52\t2\n23:53\t1\n23:54\t4\n23:55\t3\n23:56\t5\n23:57\t17\n23:58\t26\n23:59\t57\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518418263904_165201623",
+      "id": "20180212-155103_789012412",
+      "dateCreated": "Feb 12, 2018 3:51:03 PM",
+      "dateStarted": "Feb 12, 2018 3:51:26 PM",
+      "dateFinished": "Feb 12, 2018 3:51:27 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "낙",
+      "text": "%sql\nselect time, count(msg) from(\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where lower(msg) like \"%낙%\" order by time)\ngroup by time\n",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 3:54:29 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tcount(msg)\n00:14\t1\n00:16\t1\n00:38\t2\n00:39\t1\n00:52\t2\n01:19\t1\n01:39\t1\n02:17\t1\n02:35\t1\n02:38\t1\n02:48\t3\n02:49\t5\n03:05\t1\n03:08\t3\n03:11\t1\n03:32\t2\n03:33\t1\n03:51\t1\n03:52\t8\n03:53\t10\n03:54\t16\n03:55\t8\n03:57\t6\n03:58\t9\n03:59\t2\n04:00\t3\n04:01\t14\n04:02\t1\n04:03\t2\n04:04\t5\n04:05\t6\n04:06\t2\n04:07\t4\n04:08\t1\n04:09\t1\n04:11\t1\n04:12\t17\n04:13\t7\n04:14\t6\n04:15\t7\n04:16\t3\n04:17\t3\n04:18\t42\n04:19\t22\n04:20\t103\n04:21\t40\n04:22\t16\n04:23\t6\n04:24\t6\n04:25\t1\n04:26\t5\n04:27\t6\n04:28\t1\n04:35\t22\n04:36\t4\n04:37\t1\n04:39\t27\n04:40\t12\n04:41\t13\n04:42\t1\n04:43\t1\n04:44\t8\n04:45\t1\n04:46\t2\n04:47\t1\n04:51\t2\n04:52\t1\n05:02\t1\n05:05\t1\n05:30\t2\n05:31\t5\n05:32\t21\n05:33\t16\n05:34\t5\n05:35\t13\n05:36\t1\n05:37\t3\n05:38\t5\n05:39\t1\n05:40\t1\n05:41\t6\n05:42\t1\n05:43\t14\n05:44\t4\n05:45\t2\n05:46\t1\n05:47\t1\n05:52\t1\n05:53\t2\n05:55\t2\n05:56\t2\n05:57\t4\n06:03\t2\n06:04\t6\n06:05\t16\n06:06\t6\n06:07\t1\n06:09\t1\n06:12\t2\n06:13\t2\n06:14\t4\n06:16\t2\n06:17\t1\n06:18\t1\n06:19\t4\n06:21\t1\n06:26\t5\n06:30\t1\n07:15\t1\n07:19\t1\n18:50\t1\n18:54\t1\n18:57\t1\n18:58\t1\n18:59\t1\n19:00\t1\n19:02\t2\n19:04\t2\n19:05\t8\n19:06\t1\n19:07\t3\n19:08\t1\n19:13\t3\n19:14\t4\n19:16\t4\n19:18\t12\n19:19\t12\n19:20\t13\n19:21\t3\n19:22\t11\n19:23\t14\n19:24\t7\n19:25\t2\n19:26\t1\n19:27\t1\n19:28\t15\n19:29\t6\n19:31\t2\n19:32\t1\n19:33\t2\n19:34\t3\n19:36\t4\n19:37\t8\n19:38\t5\n19:40\t1\n19:43\t2\n19:44\t4\n19:45\t6\n19:46\t5\n19:51\t1\n19:52\t3\n19:53\t2\n19:54\t1\n19:55\t7\n19:57\t6\n20:02\t5\n20:03\t7\n20:14\t1\n20:16\t1\n20:17\t3\n20:19\t5\n20:20\t15\n20:23\t4\n20:24\t11\n20:25\t3\n20:26\t6\n20:27\t6\n20:28\t9\n20:29\t13\n20:30\t8\n20:31\t10\n20:32\t23\n20:33\t12\n20:34\t1\n20:35\t1\n20:37\t2\n20:48\t5\n20:50\t7\n20:51\t4\n20:53\t3\n20:54\t1\n20:55\t4\n20:56\t5\n20:57\t1\n20:58\t9\n20:59\t5\n21:03\t2\n21:04\t3\n21:05\t1\n21:06\t18\n21:07\t2\n21:11\t1\n21:13\t1\n21:14\t6\n21:15\t4\n21:21\t3\n21:22\t4\n21:23\t3\n21:24\t1\n21:27\t1\n21:29\t1\n21:54\t1\n21:59\t1\n22:08\t1\n22:26\t1\n22:28\t3\n22:32\t1\n22:33\t1\n22:36\t2\n22:37\t5\n22:38\t3\n22:39\t4\n22:41\t1\n22:47\t3\n22:48\t3\n23:21\t1\n23:52\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518418345219_1165254315",
+      "id": "20180212-155225_330661372",
+      "dateCreated": "Feb 12, 2018 3:52:25 PM",
+      "dateStarted": "Feb 12, 2018 3:52:31 PM",
+      "dateFinished": "Feb 12, 2018 3:52:31 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "너스",
+      "text": "%sql\nselect time, count(msg) from(\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where lower(msg) like \"%너스%\" order by time)\ngroup by time\n",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 3:54:22 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tcount(msg)\n00:19\t2\n00:29\t1\n00:51\t1\n00:56\t1\n01:02\t2\n02:01\t2\n02:06\t1\n02:11\t3\n02:12\t16\n02:14\t2\n02:18\t1\n02:20\t1\n02:21\t6\n02:23\t3\n02:24\t2\n02:25\t3\n02:26\t3\n02:27\t3\n02:28\t3\n02:30\t28\n02:31\t30\n02:32\t27\n02:33\t7\n02:34\t1\n02:35\t1\n02:37\t8\n02:38\t11\n02:39\t1\n02:40\t28\n02:41\t5\n02:43\t4\n02:44\t2\n02:46\t2\n02:47\t2\n02:48\t8\n02:49\t10\n02:50\t3\n02:51\t1\n02:52\t3\n02:53\t6\n03:01\t1\n03:02\t4\n03:03\t1\n03:04\t7\n03:05\t16\n03:06\t12\n03:07\t2\n03:08\t6\n03:10\t5\n03:11\t2\n03:16\t2\n03:19\t1\n03:22\t1\n03:23\t1\n03:24\t13\n03:25\t21\n03:26\t4\n03:27\t90\n03:28\t17\n03:29\t52\n03:30\t18\n03:31\t1\n03:32\t2\n03:34\t7\n03:35\t9\n03:36\t30\n03:37\t11\n03:40\t3\n03:41\t5\n03:42\t6\n03:48\t1\n03:50\t1\n03:53\t1\n03:55\t30\n03:56\t6\n03:57\t3\n03:59\t1\n04:00\t26\n04:01\t2\n04:03\t3\n04:04\t1\n04:05\t2\n04:07\t1\n04:09\t1\n04:10\t6\n04:11\t13\n04:12\t1\n04:13\t2\n04:16\t2\n04:17\t13\n04:18\t6\n04:19\t4\n04:20\t15\n04:21\t10\n04:22\t6\n04:23\t2\n04:24\t5\n04:25\t2\n04:26\t5\n04:29\t3\n04:30\t1\n04:31\t6\n04:32\t8\n04:33\t2\n04:34\t2\n04:35\t1\n04:38\t2\n04:39\t19\n04:40\t20\n04:41\t1\n04:42\t3\n04:43\t1\n04:44\t1\n04:45\t3\n04:46\t12\n04:48\t6\n04:49\t1\n04:50\t1\n04:54\t1\n04:56\t1\n04:59\t1\n05:02\t2\n05:03\t11\n05:04\t3\n05:05\t2\n05:06\t7\n05:07\t6\n05:08\t20\n05:09\t12\n05:30\t9\n05:31\t2\n05:32\t1\n05:33\t18\n05:34\t17\n05:35\t8\n05:36\t15\n05:37\t4\n05:38\t10\n05:39\t6\n05:40\t2\n05:41\t3\n05:42\t9\n05:43\t1\n05:44\t3\n05:45\t2\n05:46\t1\n05:47\t1\n05:50\t2\n05:51\t2\n05:52\t3\n05:54\t5\n05:55\t9\n05:56\t7\n05:57\t6\n05:58\t3\n05:59\t17\n06:00\t57\n06:01\t45\n06:02\t62\n06:03\t28\n06:04\t10\n06:05\t16\n06:06\t40\n06:07\t7\n06:08\t11\n06:09\t15\n06:10\t8\n06:11\t46\n06:12\t77\n06:13\t46\n06:14\t11\n06:15\t10\n06:16\t4\n06:18\t1\n06:19\t3\n06:20\t3\n06:21\t2\n06:22\t1\n06:23\t5\n06:26\t1\n06:27\t1\n06:28\t2\n06:30\t1\n06:31\t1\n06:32\t4\n06:33\t1\n06:38\t1\n07:11\t1\n07:12\t1\n07:14\t1\n07:15\t1\n07:16\t1\n07:17\t2\n07:57\t1\n08:03\t1\n08:25\t1\n08:27\t2\n18:51\t1\n18:54\t1\n18:55\t1\n18:56\t1\n19:06\t26\n19:07\t11\n19:11\t1\n19:13\t1\n19:15\t1\n19:16\t2\n19:17\t2\n19:19\t2\n19:20\t16\n19:21\t4\n19:22\t6\n19:23\t1\n19:24\t1\n19:25\t1\n19:26\t1\n19:27\t2\n19:28\t1\n19:30\t1\n19:45\t1\n19:50\t1\n19:51\t1\n19:52\t3\n19:53\t6\n19:57\t1\n20:03\t1\n20:05\t1\n20:11\t1\n20:13\t8\n20:16\t1\n20:17\t3\n20:18\t2\n20:19\t1\n20:20\t6\n20:21\t10\n20:22\t5\n20:23\t1\n20:25\t6\n20:27\t4\n20:28\t17\n20:29\t12\n20:30\t3\n20:31\t1\n20:32\t3\n20:34\t2\n20:35\t8\n20:36\t6\n20:37\t4\n20:38\t9\n20:39\t23\n20:40\t1\n20:41\t6\n20:42\t4\n20:43\t4\n20:44\t5\n20:45\t3\n20:46\t5\n20:47\t2\n20:51\t2\n20:52\t25\n20:53\t18\n20:54\t5\n20:55\t31\n20:56\t3\n20:57\t11\n20:58\t13\n20:59\t11\n21:00\t2\n21:01\t5\n21:02\t11\n21:03\t1\n21:04\t11\n21:05\t11\n21:07\t22\n21:08\t15\n21:09\t2\n21:10\t21\n21:13\t7\n21:14\t13\n21:15\t1\n21:16\t1\n21:17\t1\n21:18\t3\n21:24\t1\n21:26\t1\n21:27\t1\n21:28\t1\n21:39\t1\n21:53\t1\n22:10\t1\n22:14\t1\n22:16\t1\n22:17\t1\n22:28\t1\n22:29\t1\n22:31\t2\n22:34\t1\n22:41\t1\n22:52\t1\n23:53\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518418355954_810931226",
+      "id": "20180212-155235_545239651",
+      "dateCreated": "Feb 12, 2018 3:52:35 PM",
+      "dateStarted": "Feb 12, 2018 3:52:44 PM",
+      "dateFinished": "Feb 12, 2018 3:52:45 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "title": "옵",
+      "text": "%sql\nselect time, count(msg) from(\nselect concat(hour, \u0027:\u0027, min) as time, channel, name, msg from one where lower(msg) like \"%옵%\" order by time)\ngroup by time\n",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 3:54:08 PM",
+      "config": {
+        "colWidth": 12.0,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300.0,
+              "optionOpen": false
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql"
+        },
+        "editorMode": "ace/mode/sql",
+        "title": true,
+        "editorHide": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "time\tcount(msg)\n00:00\t1\n00:12\t1\n00:19\t1\n00:20\t1\n00:35\t5\n00:36\t2\n00:37\t3\n00:43\t1\n00:46\t1\n00:47\t1\n00:55\t1\n00:57\t1\n01:00\t1\n01:04\t1\n01:05\t1\n01:08\t1\n01:13\t3\n01:20\t1\n01:21\t1\n01:22\t1\n01:34\t1\n01:39\t4\n01:40\t1\n01:41\t4\n01:42\t9\n01:46\t2\n01:49\t2\n01:53\t1\n01:55\t1\n02:01\t1\n02:02\t2\n02:04\t1\n02:13\t1\n02:15\t3\n02:18\t1\n02:19\t1\n02:24\t1\n02:25\t2\n02:27\t1\n02:39\t1\n02:40\t8\n02:41\t11\n02:45\t1\n02:53\t2\n02:59\t1\n03:00\t1\n03:04\t1\n03:05\t1\n03:14\t1\n03:15\t1\n03:17\t1\n03:21\t1\n03:24\t1\n03:30\t1\n03:35\t1\n03:43\t1\n03:44\t5\n03:45\t2\n03:49\t2\n03:50\t1\n03:53\t1\n03:57\t1\n03:58\t1\n04:02\t2\n04:07\t2\n04:08\t49\n04:09\t1\n04:13\t1\n04:14\t1\n04:24\t4\n04:29\t1\n04:37\t1\n04:38\t1\n04:40\t1\n04:41\t1\n04:43\t2\n04:49\t1\n04:50\t4\n05:05\t2\n05:06\t1\n05:37\t2\n05:43\t1\n05:47\t2\n05:53\t1\n05:54\t2\n05:55\t1\n05:56\t1\n06:00\t1\n06:01\t2\n06:04\t1\n06:05\t1\n06:08\t1\n06:11\t1\n06:13\t1\n06:32\t1\n06:40\t1\n06:54\t1\n07:09\t1\n07:19\t1\n07:20\t1\n07:21\t1\n07:27\t1\n07:30\t3\n07:31\t4\n07:32\t1\n08:15\t1\n18:42\t1\n18:44\t1\n18:50\t1\n18:51\t1\n18:53\t1\n18:54\t1\n18:56\t1\n19:01\t2\n19:02\t1\n19:14\t2\n19:15\t1\n19:16\t6\n19:17\t1\n19:18\t1\n19:19\t3\n19:21\t1\n19:28\t2\n19:31\t2\n19:34\t3\n19:36\t5\n19:41\t1\n19:44\t1\n19:45\t1\n19:51\t5\n19:57\t5\n19:58\t1\n19:59\t1\n20:11\t4\n20:12\t2\n20:14\t3\n20:15\t3\n20:17\t2\n20:18\t4\n20:19\t1\n20:20\t1\n20:22\t1\n20:25\t1\n20:26\t1\n20:29\t1\n20:35\t1\n20:37\t1\n20:39\t1\n20:46\t3\n20:47\t2\n20:48\t2\n20:49\t3\n20:50\t4\n20:52\t1\n20:54\t1\n20:57\t1\n21:04\t3\n21:05\t1\n21:06\t1\n21:07\t1\n21:08\t1\n21:29\t1\n21:43\t1\n21:48\t1\n21:55\t1\n21:59\t3\n22:00\t16\n22:01\t1\n22:04\t1\n22:12\t1\n22:22\t2\n22:25\t1\n22:33\t1\n22:34\t7\n22:35\t4\n22:36\t4\n22:38\t1\n22:40\t1\n22:51\t1\n22:53\t1\n22:54\t3\n22:57\t2\n23:08\t1\n23:12\t4\n23:17\t2\n23:25\t1\n23:29\t2\n23:31\t1\n23:32\t2\n23:39\t1\n23:40\t3\n23:41\t1\n23:42\t1\n23:43\t2\n23:53\t1\n23:58\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1518418286559_1904464221",
+      "id": "20180212-155126_1003802551",
+      "dateCreated": "Feb 12, 2018 3:51:26 PM",
+      "dateStarted": "Feb 12, 2018 3:52:19 PM",
+      "dateFinished": "Feb 12, 2018 3:52:20 PM",
+      "status": "FINISHED",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%sql\n",
+      "user": "admin",
+      "dateUpdated": "Feb 12, 2018 3:52:19 PM",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1518418339943_-153664915",
+      "id": "20180212-155219_330448264",
+      "dateCreated": "Feb 12, 2018 3:52:19 PM",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "owl0211",
+  "id": "2D5T8EP1T",
+  "angularObjects": {
+    "2D82M616D:shared_process": [],
+    "2D74UREFQ:shared_process": [],
+    "2D62XYMMR:shared_process": [],
+    "2D6Z86WA3:shared_process": [],
+    "2D5BKH1HN:shared_process": [],
+    "2D6F7NX1N:shared_process": [],
+    "2D6E5TF2N:shared_process": [],
+    "2D6Z12VU5:shared_process": [],
+    "2D7BYG16U:shared_process": [],
+    "2D748E8ZD:shared_process": [],
+    "2D5Y7S8Q1:shared_process": [],
+    "2D8PGD5C9:shared_process": [],
+    "2D4YKPR6R:shared_process": [],
+    "2D7W7YNDX:shared_process": [],
+    "2D8C6UR7B:shared_process": [],
+    "2D5ST2F36:shared_process": [],
+    "2D78J6RDU:shared_process": [],
+    "2D7UKNFP3:shared_process": [],
+    "2D4V1TNVU:shared_process": []
+  },
+  "config": {},
+  "info": {}
+}
